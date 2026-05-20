@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 const checklistItems = [
 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -39,7 +39,9 @@ const stats = [
 				class="font-[Montserrat,system-ui,sans-serif] text-4xl text-black sm:text-5xl lg:text-6xl"
 			>
 				<span data-hero-line>Websites That Make Your</span>
-				<span data-hero-line class="block text-primary">Business Grow</span>
+				<span data-hero-line class="block text-primary"
+					>Business Grow</span
+				>
 			</h1>
 
 			<p
@@ -89,7 +91,7 @@ const stats = [
 		</div>
 
 		<div
-			class="relative mx-auto flex w-full max-w-[280px] flex-1 flex-col items-center sm:max-w-md lg:mx-0 lg:max-w-lg"
+			class="relative mx-auto flex w-full max-w-[280px] flex-1 flex-col items-center sm:max-w-md lg:mx-0 lg:max-w-lg pb-8"
 		>
 			<img
 				src="/background-effect2.svg"
@@ -154,9 +156,9 @@ const stats = [
 </section>
 
 <script>
-	import { initHeroAnimations } from '../scripts/hero-animations';
+	import { initHeroAnimations } from "../scripts/hero-animations";
 
-	const hero = document.querySelector('[data-hero]');
+	const hero = document.querySelector("[data-hero]");
 
 	if (hero instanceof HTMLElement) {
 		initHeroAnimations(hero);

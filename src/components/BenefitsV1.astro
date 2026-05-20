@@ -20,10 +20,7 @@ const features = [
 ] as const;
 ---
 
-<div
-	class="relative z-10 -mt-6 sm:-mt-8 lg:-mt-12"
-	data-benefits-v1
->
+<div class="relative z-10 -mt-6 sm:-mt-8 lg:-mt-12" data-benefits-v1>
 	<div class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]">
 		<div
 			class="overflow-hidden rounded-2xl bg-background shadow-[0_4px_20px_rgba(0,81,213,0.08),0_2px_6px_rgba(15,23,42,0.04)] lg:shadow-[0_6px_28px_rgba(0,81,213,0.1),0_2px_8px_rgba(15,23,42,0.05)]"
@@ -32,69 +29,72 @@ const features = [
 				class="hidden h-12 shrink-0 rounded-t-2xl bg-background lg:block"
 				aria-hidden="true"
 				data-benefits-peek
-			></div>
+			>
+			</div>
 
 			<section
 				aria-labelledby="benefits-heading"
-				class="rounded-2xl bg-background px-5 pb-8 sm:px-8 sm:pb-9 lg:rounded-t-none lg:px-10 lg:pb-10"
+				class="rounded-2xl bg-background px-5 pt-8 pb-8 sm:px-8 sm:pt-9 sm:pb-9 lg:rounded-t-none lg:px-10 lg:pt-0 lg:pb-10"
 			>
-			<div data-benefits-content>
-				<div
-					class="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between lg:gap-12"
-				>
-					<h2
-						id="benefits-heading"
-						class="max-w-md shrink-0 font-[Montserrat,system-ui,sans-serif] text-black"
+				<div data-benefits-content>
+					<div
+						class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
 					>
-						<span data-benefits-line>Maximizing Your</span>
-						<span data-benefits-line class="block text-primary"
-							>Business Potential</span
+						<h2
+							id="benefits-heading"
+							class="max-w-md shrink-0 font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
 						>
-					</h2>
-
-					<p
-						class="max-w-md text-black/55 lg:pt-1"
-						data-benefits-intro
-					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Nulla at velit quis metus imperdiet sagittis sit amet et
-						lacus. Aenean ac est pretium eros feugiat efficitur sed at
-						elit.
-					</p>
-				</div>
-
-				<div
-					class="mt-8 grid gap-8 sm:mt-9 sm:grid-cols-3 sm:gap-6 lg:mt-10"
-				>
-					{
-						features.map((feature) => (
-							<article
-								class="flex flex-col gap-3"
-								data-benefits-feature
+							<span data-benefits-line>Maximizing Your</span>
+							<span data-benefits-line class="block text-primary"
+								>Business Potential</span
 							>
-								<Icon
-									name="lucide:user"
-									class="h-10 w-10 text-icon"
-									aria-hidden="true"
-								/>
-								<h3 class="text-xl font-bold text-black">
-									{feature.title}
-								</h3>
-								<p class="text-black/55">{feature.description}</p>
-							</article>
-						))
-					}
+						</h2>
+
+						<p
+							class="max-w-md text-xl text-black/55 lg:pt-1 lg:text-2xl"
+							data-benefits-intro
+						>
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Nulla at velit quis metus imperdiet sagittis
+							sit amet et lacus. Aenean ac est pretium eros
+							feugiat efficitur sed at elit.
+						</p>
+					</div>
+
+					<div
+						class="mt-8 grid gap-8 md:mt-9 md:grid-cols-3 md:gap-6 lg:mt-10"
+					>
+						{
+							features.map((feature) => (
+								<article
+									class="flex flex-col gap-3"
+									data-benefits-feature
+								>
+									<Icon
+										name="lucide:user"
+										class="h-10 w-10 text-icon"
+										aria-hidden="true"
+									/>
+									<h3 class="text-xl font-bold text-black">
+										{feature.title}
+									</h3>
+									<p class="text-black/55">
+										{feature.description}
+									</p>
+								</article>
+							))
+						}
+					</div>
 				</div>
-			</div>
 			</section>
 		</div>
 	</div>
 </div>
 
 <script>
-	import { initBenefitsAnimations } from '../scripts/benefits-animations';
+	import { initBenefitsAnimations } from "../scripts/benefits-animations";
 
-	const benefits = document.querySelector('[data-benefits-v1]');
+	const benefits = document.querySelector("[data-benefits-v1]");
 
 	if (benefits instanceof HTMLElement) {
 		initBenefitsAnimations(benefits);
