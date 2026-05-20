@@ -1,0 +1,86 @@
+---
+const paragraphs = [
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+	"Aenean ac est pretium eros feugiat efficitur sed at elit. Consectetur adipiscing elit lorem ipsum dolor sit amet.",
+] as const;
+---
+
+<section
+	class="bg-background py-12 sm:py-16 lg:py-20"
+	aria-labelledby="case-study-heading"
+	data-case-study
+>
+	<div
+		class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
+		data-case-study-content
+	>
+		<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+			<div
+				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec] lg:aspect-[5/4]"
+				role="img"
+				aria-label="Case study project screenshot placeholder"
+				data-case-study-media
+			>
+			</div>
+
+			<div class="flex flex-col gap-5 sm:gap-6">
+				<div>
+					<h2
+						id="case-study-heading"
+						class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
+					>
+						<span data-case-study-line>Case Study</span>
+						<span data-case-study-line class="block text-primary"
+							>CVcreatorhub</span
+						>
+					</h2>
+
+					<p
+						class="mt-4 text-xl text-black/55 lg:text-2xl"
+						data-case-study-lead
+					>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</p>
+				</div>
+
+				<div class="flex flex-col gap-4" data-case-study-body>
+					{
+						paragraphs.map((text) => (
+							<p class="text-black/55">{text}</p>
+						))
+					}
+				</div>
+
+				<a
+					href="#"
+					class="inline-flex w-fit justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
+					data-case-study-cta
+				>
+					Live
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initCaseStudyAnimations } from "../scripts/case-study-animations";
+
+	const caseStudy = document.querySelector("[data-case-study]");
+
+	if (caseStudy instanceof HTMLElement) {
+		initCaseStudyAnimations(caseStudy);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-case-study] [data-case-study-line],
+		[data-case-study] [data-case-study-lead],
+		[data-case-study] [data-case-study-body],
+		[data-case-study] [data-case-study-cta],
+		[data-case-study] [data-case-study-media] {
+			opacity: 0;
+		}
+	}
+</style>
