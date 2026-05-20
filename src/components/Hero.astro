@@ -1,0 +1,179 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const checklistItems = [
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+	"Nulla at velit quis metus imperdiet sagittis sit amet et lacus",
+	"Aenean ac est pretium eros feugiat efficitur sed at elit",
+] as const;
+
+const stats = [
+	{ value: "23%", label: "More Revenue", icon: "lucide:chart-column" },
+	{ value: "41%", label: "More Customers", icon: "lucide:users" },
+] as const;
+---
+
+<section
+	class="relative overflow-hidden bg-background-secondary pt-10 pb-16 sm:py-24 lg:min-h-[860px] lg:py-28"
+	aria-labelledby="hero-heading"
+	data-hero
+>
+	<img
+		src="/background-grid.svg"
+		alt=""
+		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-left-top lg:object-center"
+		width="1512"
+		height="982"
+		decoding="async"
+		fetchpriority="low"
+		aria-hidden="true"
+		data-hero-grid
+	/>
+
+	<div
+		class="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:gap-12 sm:px-8 lg:flex-row lg:items-center lg:gap-10 xl:max-w-[1320px]"
+	>
+		<div class="flex max-w-[689px] flex-1 flex-col gap-4 sm:gap-6">
+			<h1
+				id="hero-heading"
+				class="font-[Montserrat,system-ui,sans-serif] text-4xl text-black sm:text-5xl lg:text-6xl"
+			>
+				<span data-hero-line>Websites That Make Your</span>
+				<span data-hero-line class="block text-primary">Business Grow</span>
+			</h1>
+
+			<p
+				class="max-w-[650px] text-black/80 text-xl lg:text-2xl"
+				data-hero-intro
+			>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+				at velit quis metus imperdiet sagittis sit amet et lacus.
+			</p>
+
+			<ul class="flex max-w-[650px] flex-col gap-4">
+				{
+					checklistItems.map((text) => (
+						<li
+							class="flex items-center gap-3 text-sm sm:text-base"
+							data-hero-checklist-item
+						>
+							<Icon
+								name="lucide:check"
+								class="h-3 w-4 shrink-0 text-black/60"
+								aria-hidden="true"
+							/>
+							<p class="leading-normal tracking-tight text-black/60">
+								{text}
+							</p>
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap">
+				<a
+					href="#contact"
+					class="inline-flex justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold leading-normal text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
+					data-hero-cta
+				>
+					Let&apos;s talk
+				</a>
+				<a
+					href="#work"
+					class="inline-flex justify-center rounded-lg border border-[#c6c6cd] px-8 py-4 text-base font-semibold leading-normal text-[#191c1e] shadow-sm transition-colors hover:bg-background/60"
+					data-hero-cta
+				>
+					See How i work
+				</a>
+			</div>
+		</div>
+
+		<div
+			class="relative mx-auto flex w-full max-w-[280px] flex-1 flex-col items-center sm:max-w-md lg:mx-0 lg:max-w-lg"
+		>
+			<img
+				src="/background-effect2.svg"
+				alt=""
+				class="pointer-events-none absolute bottom-12 right-0 z-0 w-24 sm:bottom-20 sm:w-32 lg:bottom-32 lg:w-40"
+				width="226"
+				height="226"
+				loading="lazy"
+				aria-hidden="true"
+				data-hero-effect
+			/>
+			<img
+				src="/background-effect1.svg"
+				alt=""
+				class="pointer-events-none absolute right-0 top-0 z-0 w-28 opacity-90 sm:right-1/4 sm:w-40 lg:right-[12%] lg:w-48"
+				width="290"
+				height="257"
+				loading="lazy"
+				aria-hidden="true"
+				data-hero-effect
+			/>
+
+			<img
+				src="/hero.png"
+				alt="Filip — portrait for the hero section"
+				class="relative z-10 mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] md:max-w-[360px] lg:max-w-[433px] lg:max-h-[576px]"
+				width="433"
+				height="576"
+				loading="eager"
+				decoding="async"
+				data-hero-portrait
+			/>
+
+			<div
+				class="relative z-20 -mt-10 mx-auto grid w-full max-w-[220px] grid-cols-2 gap-1 sm:-mt-14 sm:max-w-xs sm:gap-2 md:max-w-sm lg:-mt-20"
+			>
+				{
+					stats.map((stat) => (
+						<article
+							class="flex aspect-square flex-col items-center justify-center gap-2 rounded-xl bg-background px-2 py-3 text-center shadow-[0_8px_30px] shadow-primary/8 sm:gap-4 sm:px-3 sm:py-4"
+							data-hero-stat
+						>
+							<Icon
+								name={stat.icon}
+								class="h-8 w-8 text-icon sm:h-10 sm:w-10"
+								aria-hidden="true"
+							/>
+							<div class="flex flex-col items-center gap-0.5">
+								<p class="text-xl font-bold leading-none tracking-tight text-black/80 sm:text-2xl">
+									{stat.value}
+								</p>
+								<p class="text-xs leading-snug tracking-tight text-black/55 sm:text-sm">
+									{stat.label}
+								</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initHeroAnimations } from '../scripts/hero-animations';
+
+	const hero = document.querySelector('[data-hero]');
+
+	if (hero instanceof HTMLElement) {
+		initHeroAnimations(hero);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-hero] [data-hero-line],
+		[data-hero] [data-hero-intro],
+		[data-hero] [data-hero-checklist-item],
+		[data-hero] [data-hero-cta],
+		[data-hero] [data-hero-portrait],
+		[data-hero] [data-hero-effect],
+		[data-hero] [data-hero-stat],
+		[data-hero] [data-hero-grid] {
+			opacity: 0;
+		}
+	}
+</style>
