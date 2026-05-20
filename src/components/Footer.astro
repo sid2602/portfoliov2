@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+
+const navLinks = [
+	{ label: "Benefits", href: "#benefits" },
+	{ label: "Services", href: "#services" },
+	{ label: "Process", href: "#process" },
+	{ label: "Work", href: "#work" },
+	{ label: "Experience", href: "#experience" },
+	{ label: "Contact", href: "#contact" },
+] as const;
+
+const socialLinks = [
+	{ label: "LinkedIn", href: "https://linkedin.com", icon: "lucide:linkedin" },
+	{ label: "Email", href: "mailto:hello@example.com", icon: "lucide:mail" },
+] as const;
+
+const year = new Date().getFullYear();
+---
+
+<footer
+	class="border-t border-white/[0.08] bg-[#0f172a] text-white"
+	aria-labelledby="footer-heading"
+>
+	<div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 xl:max-w-[1320px]">
+		<div
+			class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-12"
+		>
+			<div class="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
+				<p id="footer-heading" class="sr-only">Site footer</p>
+				<a
+					href="/"
+					class="flex w-fit items-center gap-1 font-[Montserrat,system-ui,sans-serif] text-lg font-extrabold tracking-tight sm:text-xl"
+				>
+					<span>Filip</span>
+					<span class="text-primary">Kornaus</span>
+				</a>
+				<p class="max-w-sm text-white/55">
+					Building fast, polished websites and product experiences that
+					help businesses grow.
+				</p>
+			</div>
+
+			<nav aria-label="Footer">
+				<p class="text-base font-semibold text-white">Navigate</p>
+				<ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-2">
+					{
+						navLinks.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									class="text-base text-white/55 transition-colors hover:text-primary"
+								>
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<div>
+				<p class="text-base font-semibold text-white">Get in touch</p>
+				<ul class="mt-4 flex flex-col gap-3">
+					<li>
+						<a
+							href="mailto:hello@example.com"
+							class="inline-flex items-center gap-2 text-base text-white/55 transition-colors hover:text-primary"
+						>
+							<Icon
+								name="lucide:mail"
+								class="h-4 w-4 shrink-0"
+								aria-hidden="true"
+							/>
+							hello@example.com
+						</a>
+					</li>
+					<li>
+						<p class="text-base text-white/55">
+							Available for freelance and contract work.
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div
+			class="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
+		>
+			<p class="text-base text-white/45">
+				&copy; {year} Filip Kornaus. All rights reserved.
+			</p>
+
+			<ul class="flex items-center gap-3">
+				{
+					socialLinks.map((link) => (
+						<li>
+							<a
+								href={link.href}
+								class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white/55 transition-colors hover:border-primary/40 hover:bg-offer-icon-bg hover:text-primary"
+								aria-label={link.label}
+								target={link.href.startsWith("http") ? "_blank" : undefined}
+								rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+							>
+								<Icon
+									name={link.icon}
+									class="h-4 w-4"
+									aria-hidden="true"
+								/>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</footer>
