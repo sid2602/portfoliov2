@@ -6,21 +6,27 @@ const bodyText =
 <section
 	class="bg-background"
 	aria-labelledby="split-content-heading"
-	data-split-content-v1
+	data-benefits2
 >
 	<div
 		class="mx-auto max-w-7xl px-5 pb-12 sm:px-8 sm:pb-16 xl:max-w-[1320px]"
+		data-benefits2-content
 	>
 		<header class="max-w-3xl">
 			<h2
 				id="split-content-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
 			>
-				<span>Lorem Ipsum dolor sit amet</span>
-				<span class="block text-primary">consectetur</span>
+				<span data-benefits2-line>Lorem Ipsum dolor sit amet</span>
+				<span data-benefits2-line class="block text-primary"
+					>consectetur</span
+				>
 			</h2>
 
-			<p class="mt-4 max-w-2xl text-xl text-black/55 lg:text-2xl">
+			<p
+				class="mt-4 max-w-2xl text-xl text-black/55 lg:text-2xl"
+				data-benefits2-intro
+			>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
 				at velit quis metus imperdiet sagittis sit amet et lacus.
 			</p>
@@ -31,14 +37,37 @@ const bodyText =
 				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec]"
 				role="img"
 				aria-label="Image placeholder — content coming soon"
+				data-benefits2-media
 			>
 			</div>
 
 			<div
 				class="flex aspect-[4/3] w-full items-center rounded-2xl bg-background-secondary px-6 py-8 sm:px-8 lg:px-10"
+				data-benefits2-card
 			>
 				<p class="text-black/55">{bodyText}</p>
 			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+	import { initBenefits2Animations } from '../scripts/benefits2-animations';
+
+	const benefits2 = document.querySelector('[data-benefits2]');
+
+	if (benefits2 instanceof HTMLElement) {
+		initBenefits2Animations(benefits2);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-benefits2] [data-benefits2-line],
+		[data-benefits2] [data-benefits2-intro],
+		[data-benefits2] [data-benefits2-media],
+		[data-benefits2] [data-benefits2-card] {
+			opacity: 0;
+		}
+	}
+</style>

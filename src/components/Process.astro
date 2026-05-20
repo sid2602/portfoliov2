@@ -1,0 +1,123 @@
+---
+const steps = [
+	{
+		number: "01",
+		label: "Discovery",
+		title: "Lorem ipsum dolor sit amet consectetur",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+	},
+	{
+		number: "02",
+		label: "Strategy",
+		title: "Lorem ipsum dolor sit amet consectetur",
+		description:
+			"Aenean ac est pretium eros feugiat efficitur sed at elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+	},
+	{
+		number: "03",
+		label: "Design",
+		title: "Lorem ipsum dolor sit amet consectetur",
+		description:
+			"Consectetur adipiscing elit. Lorem ipsum dolor sit amet, nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+	},
+	{
+		number: "04",
+		label: "Launch",
+		title: "Lorem ipsum dolor sit amet consectetur",
+		description:
+			"Nulla at velit quis metus imperdiet sagittis sit amet et lacus. Aenean ac est pretium eros feugiat efficitur sed at elit.",
+	},
+] as const;
+---
+
+<section
+	class="relative overflow-hidden bg-background py-12 sm:py-16 lg:py-20"
+	aria-labelledby="process-heading"
+	data-process
+>
+	<img
+		src="/background-grid2.svg"
+		alt=""
+		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+		width="1512"
+		height="982"
+		loading="lazy"
+		decoding="async"
+		aria-hidden="true"
+	/>
+
+	<div
+		class="relative mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
+		data-process-content
+	>
+		<header class="text-center">
+			<h2
+				id="process-heading"
+				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
+			>
+				<span data-process-line>Lorem Ipsum</span>
+				<span data-process-line class="text-primary"> dolor</span>
+			</h2>
+		</header>
+
+		<ol class="mt-10 flex flex-col items-center sm:mt-12">
+			{
+				steps.map((step, index) => (
+					<li
+						class:list={[
+							"w-full max-w-5xl border-primary/15 lg:max-w-6xl xl:max-w-7xl",
+							index > 0 && "border-t",
+						]}
+						data-process-step
+					>
+						<div class="mx-auto flex w-full max-w-5xl flex-col items-start gap-5 py-8 sm:py-10 md:w-fit md:flex-row md:items-center md:gap-6 lg:max-w-6xl lg:gap-8 xl:max-w-7xl">
+							<div class="flex shrink-0 flex-col gap-2 text-left">
+								<span
+									class="font-[Montserrat,system-ui,sans-serif] text-5xl leading-none font-bold text-icon sm:text-6xl"
+									aria-hidden="true"
+								>
+									{step.number}
+								</span>
+								<span class="text-xl font-bold text-black sm:text-2xl">
+									{step.label}
+								</span>
+							</div>
+
+							<div
+								class="hidden w-px shrink-0 self-stretch bg-primary/15 md:block"
+								aria-hidden="true"
+							/>
+
+							<div class="flex w-full min-w-0 shrink-0 flex-col gap-2 sm:max-w-xl md:w-[28rem] lg:w-[36rem] xl:w-[42rem]">
+								<h3 class="text-3xl font-bold text-black/70">
+									{step.title}
+								</h3>
+								<p class="text-black/55">{step.description}</p>
+							</div>
+						</div>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>
+
+<script>
+	import { initProcessAnimations } from '../scripts/process-animations';
+
+	const process = document.querySelector('[data-process]');
+
+	if (process instanceof HTMLElement) {
+		initProcessAnimations(process);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-process] [data-process-line],
+		[data-process] [data-process-step] {
+			opacity: 0;
+		}
+	}
+</style>
