@@ -5,6 +5,13 @@
 	--color-icon: #dfeafc;
 	--color-background: #ffffff;
 	--color-background-secondary: #f5f9ff;
+	--color-offer-bg: #0b1220;
+	--color-offer-surface: #151d2f;
+	--color-offer-surface-border: rgb(255 255 255 / 0.08);
+	--color-offer-text: #f1f5f9;
+	--color-offer-text-muted: #94a3b8;
+	--color-offer-media: #1e293b;
+	--color-offer-icon-bg: rgb(0 81 213 / 0.28);
 }
 
 @layer base {

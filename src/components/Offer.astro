@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+
+const offers = [
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+	{
+		title: "Lorem ipsum dolor",
+		description:
+			"Mus nec semper sed venenatis enim vivamus tellus orci.",
+	},
+] as const;
+---
+
+<section
+	class="bg-offer-bg py-12 sm:py-16 lg:py-20"
+	aria-labelledby="offer-heading"
+	data-offer
+>
+	<div
+		class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
+		data-offer-content
+	>
+		<div class="grid gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10">
+			<div class="flex flex-col">
+				<h2
+					id="offer-heading"
+					class="font-[Montserrat,system-ui,sans-serif] text-3xl text-offer-text sm:text-4xl lg:text-5xl"
+				>
+					<span data-offer-line>Lorem ipsum dolor sit amet</span>
+					<span data-offer-line class="block text-primary"
+						>consectetur.</span
+					>
+				</h2>
+
+				<div
+					class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5"
+				>
+					{
+						offers.map((item) => (
+							<article
+								class="flex flex-col gap-3 rounded-2xl border border-offer-surface-border bg-offer-surface p-5 sm:p-6"
+								data-offer-item
+							>
+								<div
+									class="flex h-10 w-10 items-center justify-center rounded-full bg-offer-icon-bg"
+									aria-hidden="true"
+								>
+									<Icon
+										name="lucide:code-xml"
+										class="h-5 w-5 text-icon"
+									/>
+								</div>
+								<h3 class="text-xl font-bold text-offer-text">
+									{item.title}
+								</h3>
+								<p class="text-offer-text-muted">
+									{item.description}
+								</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+
+			<div
+				class="min-h-[280px] w-full rounded-2xl bg-offer-media sm:min-h-[360px] lg:min-h-full"
+				role="img"
+				aria-label="Image placeholder — content coming soon"
+				data-offer-media
+			></div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initOfferAnimations } from "../scripts/offer-animations";
+
+	const offer = document.querySelector("[data-offer]");
+
+	if (offer instanceof HTMLElement) {
+		initOfferAnimations(offer);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-offer] [data-offer-line],
+		[data-offer] [data-offer-item],
+		[data-offer] [data-offer-media] {
+			opacity: 0;
+		}
+	}
+</style>
