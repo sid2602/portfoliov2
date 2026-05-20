@@ -60,26 +60,33 @@ const experiences = [
 			</p>
 		</header>
 
-		<ol class="relative mt-12 sm:mt-16">
+		<ol
+			class="relative mt-12 [--experience-track:2rem] sm:mt-16 md:[--experience-track:0px]"
+		>
 			<div
-				class="absolute top-0 bottom-0 left-4 w-px bg-black/10 md:left-1/2 md:-translate-x-1/2"
+				class="pointer-events-none absolute inset-y-0 w-(--experience-track) md:left-1/2 md:w-px md:-translate-x-1/2"
 				aria-hidden="true"
-			></div>
+			>
+				<div
+					class="absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-black/10"
+				>
+				</div>
+			</div>
 
 			{
 				experiences.map((item, index) => (
 					<li
 						class:list={[
-							"relative grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 pb-12 last:pb-0 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-8 md:gap-y-0 md:pb-16",
+							"relative grid grid-cols-[var(--experience-track)_1fr] gap-x-5 gap-y-3 pb-12 last:pb-0 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-8 md:gap-y-0 md:pb-16",
 							index === experiences.length - 1 && "md:pb-0",
 						]}
 						data-experience-item
 					>
 						<div
-							class="col-start-1 row-start-1 flex justify-center md:col-start-2 md:row-start-1"
+							class="relative col-start-1 row-start-1 w-(--experience-track) md:col-start-2 md:row-start-1 md:flex md:w-auto md:justify-center"
 						>
 							<div
-								class="relative z-10 mt-6 h-3 w-3 rounded-full bg-black md:mt-0"
+								class="absolute top-6 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-black md:relative md:top-auto md:left-auto md:translate-x-0"
 								aria-hidden="true"
 							></div>
 						</div>
@@ -109,18 +116,24 @@ const experiences = [
 								<p class="mt-3 text-black/55">
 									{item.description}
 								</p>
+								<p
+									class="mt-3 font-mono text-xs uppercase tracking-wider text-black/45 sm:text-sm md:hidden"
+									data-experience-industry
+								>
+									{item.industry}
+								</p>
 							</article>
 						</div>
 
 						<p
 							class:list={[
-								"col-span-2 row-start-2 font-mono text-xs uppercase tracking-wider text-black/45 sm:text-sm",
-								"md:col-span-1 md:row-start-1 md:self-center",
+								"hidden font-mono text-xs uppercase tracking-wider text-black/45 sm:text-sm",
+								"md:col-span-1 md:row-start-1 md:block md:self-center",
 								item.side === "left"
 									? "md:col-start-3 md:text-left"
 									: "md:col-start-1 md:text-right",
 							]}
-							data-experience-industry
+							data-experience-industry-desktop
 						>
 							{item.industry}
 						</p>
