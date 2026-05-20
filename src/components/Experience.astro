@@ -1,0 +1,151 @@
+---
+import { Icon } from "astro-icon/components";
+
+const experiences = [
+	{
+		company: "TechNova",
+		industry: "Enterprise Fintech",
+		icon: "lucide:landmark",
+		description:
+			"Led the redesign of the core AP automation platform, improving user efficiency by 35% and securing a major enterprise contract with a Fortune 500 client.",
+		side: "left",
+	},
+	{
+		company: "CloudStream",
+		industry: "E-commerce SaaS",
+		icon: "lucide:shopping-bag",
+		description:
+			"Built and maintained a high-performance React component library used across 12 product squads, reducing front-end development cycles by 20%.",
+		side: "right",
+	},
+	{
+		company: "Apex Design",
+		industry: "Design Agency",
+		icon: "lucide:palette",
+		description:
+			"Partnered with luxury brands to craft immersive, high-conversion landing pages. Specialized in Three.js and complex GSAP animations.",
+		side: "left",
+	},
+] as const;
+---
+
+<section
+	class="bg-background py-12 sm:py-16 lg:py-20"
+	aria-labelledby="experience-heading"
+	data-experience
+>
+	<div
+		class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
+		data-experience-content
+	>
+		<header class="mx-auto max-w-3xl text-center">
+			<h2
+				id="experience-heading"
+				class="font-[Montserrat,system-ui,sans-serif] text-3xl sm:text-4xl lg:text-5xl"
+			>
+				<span data-experience-line class="text-primary">Experience</span>
+				<span data-experience-line class="block text-black"
+					>That Shapes My Work</span
+				>
+			</h2>
+
+			<p
+				class="mt-4 text-base text-black/55 sm:text-lg"
+				data-experience-intro
+			>
+				A track record of delivering high-quality digital products across
+				various industries, from early-stage startups to established
+				enterprises.
+			</p>
+		</header>
+
+		<ol class="relative mt-12 sm:mt-16">
+			<div
+				class="absolute top-0 bottom-0 left-4 w-px bg-black/10 md:left-1/2 md:-translate-x-1/2"
+				aria-hidden="true"
+			></div>
+
+			{
+				experiences.map((item, index) => (
+					<li
+						class:list={[
+							"relative grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 pb-12 last:pb-0 md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-x-8 md:gap-y-0 md:pb-16",
+							index === experiences.length - 1 && "md:pb-0",
+						]}
+						data-experience-item
+					>
+						<div
+							class="col-start-1 row-start-1 flex justify-center md:col-start-2 md:row-start-1"
+						>
+							<div
+								class="relative z-10 mt-6 h-3 w-3 rounded-full bg-black md:mt-0"
+								aria-hidden="true"
+							></div>
+						</div>
+
+						<div
+							class:list={[
+								"col-start-2 row-start-1 md:col-start-1 md:row-start-1",
+								item.side === "right" &&
+									"md:col-start-3 md:row-start-1",
+							]}
+						>
+							<article class="rounded-2xl bg-background p-5 shadow-[0_4px_20px_rgba(0,81,213,0.08),0_2px_6px_rgba(15,23,42,0.04)] sm:p-6">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-icon"
+										aria-hidden="true"
+									>
+										<Icon
+											name={item.icon}
+											class="h-5 w-5 text-primary"
+										/>
+									</div>
+									<h3 class="text-xl font-bold text-black">
+										{item.company}
+									</h3>
+								</div>
+								<p class="mt-3 text-black/55">
+									{item.description}
+								</p>
+							</article>
+						</div>
+
+						<p
+							class:list={[
+								"col-span-2 row-start-2 font-mono text-xs uppercase tracking-wider text-black/45 sm:text-sm",
+								"md:col-span-1 md:row-start-1 md:self-center",
+								item.side === "left"
+									? "md:col-start-3 md:text-left"
+									: "md:col-start-1 md:text-right",
+							]}
+							data-experience-industry
+						>
+							{item.industry}
+						</p>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</section>
+
+<script>
+	import { initExperienceAnimations } from "../scripts/experience-animations";
+
+	const experience = document.querySelector("[data-experience]");
+
+	if (experience instanceof HTMLElement) {
+		initExperienceAnimations(experience);
+	}
+</script>
+
+<style>
+	@media (prefers-reduced-motion: no-preference) {
+		[data-experience] [data-experience-line],
+		[data-experience] [data-experience-intro],
+		[data-experience] [data-experience-item] {
+			opacity: 0;
+		}
+	}
+</style>
