@@ -5,6 +5,7 @@ const SECTION_IDS = [
 	'work',
 	'experience',
 	'contact',
+	'faq',
 ] as const;
 
 function setMenuOpen(nav: HTMLElement, open: boolean) {
@@ -23,7 +24,7 @@ function setMenuOpen(nav: HTMLElement, open: boolean) {
 	}
 
 	toggle.setAttribute('aria-expanded', String(open));
-	toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+	toggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
 
 	if (open) {
 		menu.hidden = false;

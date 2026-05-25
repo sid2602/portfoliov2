@@ -1,0 +1,100 @@
+---
+const items = [
+	{
+		question: "Dla kogo jest taka współpraca?",
+		answer:
+			"Dla firm i usług, które chcą więcej zapytań z internetu: lokalnych biznesów, specjalistów, B2B i marek osobistych. Jeśli klienci sprawdzają Cię online, zanim zadzwonią, taka strona ma sens.",
+	},
+	{
+		question: "Ile trwa zrobienie strony?",
+		answer:
+			"Standardowo około 14 dni od ustalenia zakresu, o ile szybko dostanę od Ciebie materiały i feedback. Dokładny termin ustalamy na początku, żebyś wiedział, kiedy liczyć na start.",
+	},
+	{
+		question: "Co dokładnie dostaję?",
+		answer:
+			'Komplet pod pozyskiwanie klientów: projekt i kod, treści sprzedażowe, SEO, analitykę, architekturę pod konwersję oraz opiekę po wdrożeniu. Nie oddaję „gołego” szablonu, tylko narzędzie gotowe do pracy.',
+	},
+	{
+		question: "Czy muszę sam przygotować teksty i zdjęcia?",
+		answer:
+			"Teksty współtworzymy: Ty znasz biznes, ja pomagam ułożyć je tak, by sprzedawały. Jeśli masz zdjęcia lub logo, świetnie. Jeśli nie, ustalimy na starcie, co trzeba dosłać lub uzupełnić, żeby strona wyglądała profesjonalnie.",
+	},
+	{
+		question: "Jak wyglądają poprawki?",
+		answer:
+			"W projekcie są maksymalnie 2 rundy zbiorczych poprawek. W każdej rundzie zbierasz wszystkie uwagi i przesyłasz je jednorazowo. Dzięki temu zmiany wchodzą sprawnie i nie rozjeżdżamy terminu.",
+	},
+	{
+		question: "Ile to kosztuje?",
+		answer:
+			"Cena zależy od zakresu: liczby podstron, treści, integracji i tego, czy startujemy od zera, czy przebudowujemy istniejącą stronę. Po krótkiej rozmowie dostajesz jasną wycenę, bez ukrytych pozycji.",
+	},
+	{
+		question: "Czym to się różni od szablonu na Wixie lub WordPressie?",
+		answer:
+			'Szablon jest „dla wszystkich”. Ja układam stronę pod Twojego klienta i jego decyzję: co ma zobaczyć, co ma kliknąć i dlaczego ma się do Ciebie odezwać. To nie tylko wygląd, ale cała ścieżka do kontaktu.',
+	},
+	{
+		question: "Czy zajmujesz się hostingiem i domeną?",
+		answer:
+			"Domenę i hosting wykupujesz Ty, żeby zostały na Twoją firmę. Możesz też przekazać mi dostęp do konta u dostawcy, a ja je skonfiguruję, podepnę stronę i sprawdzę, czy wszystko działa po uruchomieniu. Na życzenie podpowiem, u kogo warto to kupić.",
+	},
+	{
+		question: "Co dzieje się po uruchomieniu strony?",
+		answer:
+			"Nie kończę na publikacji. W ramach współpracy masz opiekę po wdrożeniu: aktualizacje, poprawki i rozwój strony wraz z Twoim biznesem. Zakres i warunki ustalamy przy wycenie.",
+	},
+	{
+		question: "Mam już stronę. Czy robisz przebudowę?",
+		answer:
+			"Tak. Jeśli obecna witryna nie zbiera zapytań albo wygląda nieaktualnie, możemy zrobić przebudowę pod ten sam cel: więcej kontaktu i lepszą widoczność w Google. Na rozmowie sprawdzę, co warto zachować, a co zrobić od nowa.",
+	},
+	{
+		question: "Jak zacząć?",
+		answer:
+			"Wypełnij formularz kontaktowy lub umów darmową rozmowę. Krótko opisz firmę i cel strony. Odpowiem zwykle w ciągu jednego dnia roboczego i ustalimy kolejne kroki.",
+	},
+] as const;
+---
+
+<section
+	id="faq"
+	class="scroll-mt-20 bg-background py-12 sm:py-16 lg:py-20"
+	aria-labelledby="faq-heading"
+>
+	<div class="mx-auto max-w-3xl px-5 sm:px-8 xl:max-w-[1320px]">
+		<header class="text-center">
+			<h2
+				id="faq-heading"
+				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
+			>
+				Najczęstsze <span class="text-primary">pytania</span>
+			</h2>
+			<p class="mt-4 text-lg text-black/55">
+				Krótko i na temat, zanim umówimy rozmowę.
+			</p>
+		</header>
+
+		<div class="mt-10 flex flex-col gap-3 sm:mt-12">
+			{
+				items.map((item) => (
+					<details class="group rounded-2xl border border-black/10 bg-background-secondary px-5 py-4 sm:px-6">
+						<summary class="cursor-pointer list-none text-base font-semibold text-black marker:content-none [&::-webkit-details-marker]:hidden">
+							<span class="flex items-center justify-between gap-4">
+								{item.question}
+								<span
+									class="shrink-0 text-primary transition-transform group-open:rotate-45"
+									aria-hidden="true"
+								>
+									+
+								</span>
+							</span>
+						</summary>
+						<p class="mt-3 text-black/55">{item.answer}</p>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

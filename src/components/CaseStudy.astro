@@ -1,7 +1,7 @@
 ---
 const paragraphs = [
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
-	"Aenean ac est pretium eros feugiat efficitur sed at elit. Consectetur adipiscing elit lorem ipsum dolor sit amet.",
+	"Większość kreatorów CV kończy na szablonie. Użytkownik i tak ręcznie dopasowuje treść pod każde ogłoszenie i gubi wątki, gdzie już aplikował. Stąd pomysł na jedno miejsce: profesjonalne CV, dopasowanie pod ofertę, szablony pod ATS i porządek w rekrutacjach.",
+	"Zaprojektowałem i wdrożyłem produkt end to end: landing sprzedażowy, logika aplikacji, optymalizacja AI pod stanowisko, import CV, odczyt ogłoszeń ze zrzutu ekranu, eksport PDF, plany cenowe i responsywny interfejs. Działa w produkcji na cvcreatorhub.com i pokazuje, że buduję nie tylko strony firmowe, lecz też złożone narzędzia gotowe na realnych użytkowników.",
 ] as const;
 ---
 
@@ -19,7 +19,7 @@ const paragraphs = [
 			<div
 				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec] lg:aspect-[5/4]"
 				role="img"
-				aria-label="Case study project screenshot placeholder"
+				aria-label="Zrzut ekranu projektu CV Creator Hub"
 				data-case-study-media
 			>
 			</div>
@@ -32,7 +32,7 @@ const paragraphs = [
 					>
 						<span data-case-study-line>Case Study</span>
 						<span data-case-study-line class="block text-primary"
-							>CVcreatorhub</span
+							>CV Creator Hub</span
 						>
 					</h2>
 
@@ -40,24 +40,49 @@ const paragraphs = [
 						class="mt-4 text-xl text-black/55 lg:text-2xl"
 						data-case-study-lead
 					>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Własny produkt SaaS: platforma do tworzenia CV z AI, która skraca
+						aplikowanie o pracę z godzin do kilku kliknięć.
 					</p>
 				</div>
 
 				<div class="flex flex-col gap-4" data-case-study-body>
 					{
-						paragraphs.map((text) => (
-							<p class="text-black/55">{text}</p>
+						paragraphs.map((text, index) => (
+							<p class="text-black/55">
+								{index === 1 ? (
+									<>
+										Zaprojektowałem i wdrożyłem produkt end to end: landing
+										sprzedażowy, logika aplikacji, optymalizacja AI pod
+										stanowisko, import CV, odczyt ogłoszeń ze zrzutu ekranu,
+										eksport PDF, plany cenowe i responsywny interfejs. Działa w
+										produkcji na{" "}
+										<a
+											href="https://cvcreatorhub.com/pl"
+											class="text-primary underline-offset-2 hover:underline"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											cvcreatorhub.com
+										</a>{" "}
+										i pokazuje, że buduję nie tylko strony firmowe, lecz też
+										złożone narzędzia gotowe na realnych użytkowników.
+									</>
+								) : (
+									text
+								)}
+							</p>
 						))
 					}
 				</div>
 
 				<a
-					href="#"
+					href="https://cvcreatorhub.com/pl"
 					class="inline-flex w-fit justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
 					data-case-study-cta
+					target="_blank"
+					rel="noopener noreferrer"
 				>
-					Live
+					Zobacz live
 				</a>
 			</div>
 		</div>

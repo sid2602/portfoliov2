@@ -2,14 +2,31 @@
 import { Icon } from "astro-icon/components";
 
 const checklistItems = [
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-	"Nulla at velit quis metus imperdiet sagittis sit amet et lacus",
-	"Aenean ac est pretium eros feugiat efficitur sed at elit",
+	{
+		highlight: "Konkurencja przestaje wygrywać samym wyglądem",
+		rest: "klienci widzą, dlaczego warto wybrać Ciebie, nie innego",
+	},
+	{
+		highlight: "Klienci od razu wiedzą, co oferujesz",
+		rest: "bez domyślania i pytań „czym się zajmujecie?”",
+	},
+	{
+		highlight: "Wyglądasz jak firma godna wyższej ceny",
+		rest: "pierwsze wrażenie buduje wartość, nie tylko „ładną wizytówkę”",
+	},
 ] as const;
 
 const stats = [
-	{ value: "23%", label: "More Revenue", icon: "lucide:chart-column" },
-	{ value: "41%", label: "More Customers", icon: "lucide:users" },
+	{
+		value: "200%",
+		label: "więcej zapytań",
+		icon: "lucide:chart-column",
+	},
+	{
+		value: "97%",
+		label: "klientów szuka Cię online",
+		icon: "lucide:users",
+	},
 ] as const;
 ---
 
@@ -38,9 +55,16 @@ const stats = [
 				id="hero-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-4xl text-black sm:text-5xl lg:text-6xl"
 			>
-				<span data-hero-line>Websites That Make Your</span>
-				<span data-hero-line class="block text-primary"
-					>Business Grow</span
+				<span data-hero-line class="block lg:whitespace-nowrap"
+					>Twoja firma zasługuje</span
+				>
+				<span data-hero-line class="block lg:whitespace-nowrap"
+					>na stronę, która</span
+				>
+				<span
+					data-hero-line
+					class="block text-primary lg:whitespace-nowrap"
+					>pracuje na wynik</span
 				>
 			</h1>
 
@@ -48,13 +72,15 @@ const stats = [
 				class="max-w-[650px] text-black/80 text-xl lg:text-2xl"
 				data-hero-intro
 			>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-				at velit quis metus imperdiet sagittis sit amet et lacus.
+				Powiedz mi, czym się zajmujesz. Ja zajmę się resztą, od projektu
+				po uruchomienie. Ty dostajesz <strong
+					>gotową witrynę, która zbiera zapytania</strong
+				>, nawet gdy Ty masz zajęte ręce.
 			</p>
 
 			<ul class="flex max-w-[650px] flex-col gap-4">
 				{
-					checklistItems.map((text) => (
+					checklistItems.map((item) => (
 						<li
 							class="flex items-center gap-3 text-sm sm:text-base"
 							data-hero-checklist-item
@@ -65,7 +91,10 @@ const stats = [
 								aria-hidden="true"
 							/>
 							<p class="leading-normal tracking-tight text-black/60">
-								{text}
+								<strong class="font-semibold text-black/75">
+									{item.highlight}
+								</strong>
+								: {item.rest}
 							</p>
 						</li>
 					))
@@ -78,14 +107,14 @@ const stats = [
 					class="inline-flex justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold leading-normal text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
 					data-hero-cta
 				>
-					Let&apos;s talk
+					Umów darmową rozmowę
 				</a>
 				<a
-					href="#work"
+					href="#process"
 					class="inline-flex justify-center rounded-lg border border-[#c6c6cd] px-8 py-4 text-base font-semibold leading-normal text-[#191c1e] shadow-sm transition-colors hover:bg-background/60"
 					data-hero-cta
 				>
-					See How i work
+					Zobacz, jak pracuję
 				</a>
 			</div>
 		</div>
@@ -116,7 +145,7 @@ const stats = [
 
 			<img
 				src="/hero.png"
-				alt="Filip — portrait for the hero section"
+				alt="Filip — zdjęcie w sekcji hero"
 				class="relative z-10 mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] md:max-w-[360px] lg:max-w-[433px] lg:max-h-[576px]"
 				width="433"
 				height="576"
@@ -126,27 +155,25 @@ const stats = [
 			/>
 
 			<div
-				class="relative z-20 -mt-10 mx-auto grid w-full max-w-[220px] grid-cols-2 gap-1 sm:-mt-14 sm:max-w-xs sm:gap-2 md:max-w-sm lg:-mt-20"
+				class="relative z-20 -mt-10 flex justify-center gap-1 sm:-mt-14 sm:gap-2 lg:-mt-20"
 			>
 				{
 					stats.map((stat) => (
 						<article
-							class="flex aspect-square flex-col items-center justify-center gap-2 rounded-xl bg-background px-2 py-3 text-center shadow-[0_8px_30px] shadow-primary/8 sm:gap-4 sm:px-3 sm:py-4"
 							data-hero-stat
+							class="grid h-[118px] w-[118px] grid-rows-[1fr_auto_1fr] justify-items-center gap-y-1 rounded-xl bg-background p-2 shadow-[0_8px_30px] shadow-primary/8 sm:h-[142px] sm:w-[142px] sm:gap-y-2 md:size-[188px] md:gap-y-3 lg:size-[140px] xl:size-[196px] lg:gap-y-2 xl:gap-y-4"
 						>
 							<Icon
 								name={stat.icon}
-								class="h-8 w-8 text-icon sm:h-10 sm:w-10"
+								class="row-start-1 size-6 shrink-0 self-end text-icon sm:size-7 md:size-8"
 								aria-hidden="true"
 							/>
-							<div class="flex flex-col items-center gap-0.5">
-								<p class="text-xl font-bold leading-none tracking-tight text-black/80 sm:text-2xl">
-									{stat.value}
-								</p>
-								<p class="text-xs leading-snug tracking-tight text-black/55 sm:text-sm">
-									{stat.label}
-								</p>
-							</div>
+							<span class="row-start-2 text-center text-xl font-bold leading-none text-black/80 sm:text-2xl md:text-3xl">
+								{stat.value}
+							</span>
+							<span class="row-start-3 self-start text-center text-xs leading-tight text-black/60 sm:text-sm">
+								{stat.label}
+							</span>
 						</article>
 					))
 				}

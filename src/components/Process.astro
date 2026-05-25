@@ -2,31 +2,31 @@
 const steps = [
 	{
 		number: "01",
-		label: "Discovery",
-		title: "Lorem ipsum dolor sit amet consectetur",
+		label: "Poznanie",
+		title: "Najpierw Twój klient, potem projekt",
 		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+			"Rozmawiamy o biznesie, ofercie i tym, kogo chcesz przyciągnąć na stronę. Ustalamy, co odwiedzający musi zobaczyć i usłyszeć, żeby się odezwać. To fundament całego projektu, bez szablonów i bez zgadywania.",
 	},
 	{
 		number: "02",
-		label: "Strategy",
-		title: "Lorem ipsum dolor sit amet consectetur",
+		label: "Strategia",
+		title: "Plan, zanim ruszy projekt",
 		description:
-			"Aenean ac est pretium eros feugiat efficitur sed at elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+			"Na tej podstawie układam strukturę strony, kluczowe przekazy i miejsca na kontakt. Wiesz, co powstanie i dlaczego, zanim zobaczysz pierwszą wersję wizualną.",
 	},
 	{
 		number: "03",
-		label: "Design",
-		title: "Lorem ipsum dolor sit amet consectetur",
+		label: "Projekt",
+		title: "Projekt i dopracowanie strony",
 		description:
-			"Consectetur adipiscing elit. Lorem ipsum dolor sit amet, nulla at velit quis metus imperdiet sagittis sit amet et lacus.",
+			"Projektuję i koduję witrynę tak, by prowadziła do telefonu, formularza lub rezerwacji. Po każdej prezentacji wersji zbierasz uwagi i przesyłasz je jednorazowo. W ramach współpracy przewiduję maksymalnie 2 rundy takich zbiorczych poprawek, żeby wprowadzać zmiany sprawnie i trzymać uzgodniony termin.",
 	},
 	{
 		number: "04",
-		label: "Launch",
-		title: "Lorem ipsum dolor sit amet consectetur",
+		label: "Wdrożenie",
+		title: "Start z działającym narzędziem",
 		description:
-			"Nulla at velit quis metus imperdiet sagittis sit amet et lacus. Aenean ac est pretium eros feugiat efficitur sed at elit.",
+			"Publikuję stronę, konfiguruję SEO i analitykę. Od pierwszego dnia widzisz ruch i wiesz, ile osób przechodzi do kontaktu z Twoją firmą.",
 	},
 ] as const;
 ---
@@ -52,14 +52,19 @@ const steps = [
 		class="relative mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
 		data-process-content
 	>
-		<header class="text-center">
+		<header class="mx-auto max-w-3xl text-center">
 			<h2
 				id="process-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
 			>
-				<span data-process-line>Lorem Ipsum</span>
-				<span data-process-line class="text-primary"> dolor</span>
+				<span data-process-line>Jak wygląda</span>
+				<span data-process-line class="text-primary"> współpraca ze mną</span>
 			</h2>
+
+			<p class="mt-4 text-lg text-black/55 sm:text-xl">
+				Proces w czterech krokach. Wiesz, co dzieje się na każdym etapie i kiedy
+				możesz liczyć na gotową stronę.
+			</p>
 		</header>
 
 		<ol class="mt-10 flex flex-col items-center sm:mt-12">

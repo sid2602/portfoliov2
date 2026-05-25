@@ -1,6 +1,4 @@
 ---
-const bodyText =
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at velit quis metus imperdiet sagittis sit amet et lacus. Aenean ac est pretium eros feugiat efficitur sed at elit.";
 ---
 
 <section
@@ -17,9 +15,9 @@ const bodyText =
 				id="split-content-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
 			>
-				<span data-benefits2-line>Lorem Ipsum dolor sit amet</span>
+				<span data-benefits2-line>Strona zaprojektowana pod</span>
 				<span data-benefits2-line class="block text-primary"
-					>consectetur</span
+					>decyzję zakupową</span
 				>
 			</h2>
 
@@ -27,8 +25,8 @@ const bodyText =
 				class="mt-4 max-w-2xl text-xl text-black/55 lg:text-2xl"
 				data-benefits2-intro
 			>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-				at velit quis metus imperdiet sagittis sit amet et lacus.
+				Ładna witryna to za mało. Liczy się to, czy prowadzi odwiedzającego do
+				<strong>konkretnego kroku</strong>: telefonu, formularza, rezerwacji.
 			</p>
 		</header>
 
@@ -36,16 +34,42 @@ const bodyText =
 			<div
 				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec]"
 				role="img"
-				aria-label="Image placeholder — content coming soon"
+				aria-label="Zdjęcie — miejsce na grafikę"
 				data-benefits2-media
 			>
 			</div>
 
 			<div
-				class="flex aspect-[4/3] w-full items-center rounded-2xl bg-background-secondary px-6 py-8 sm:px-8 lg:px-10"
+				class="flex aspect-[4/3] w-full flex-col justify-center gap-5 rounded-2xl bg-background-secondary px-6 py-8 sm:px-8 lg:px-10"
 				data-benefits2-card
 			>
-				<p class="text-black/55">{bodyText}</p>
+				<div class="flex flex-col gap-4 text-black/55">
+					<p>
+						Większość stron jest zrobiona „dla wszystkich”, i właśnie dlatego{" "}
+						<strong>nie przekonuje nikogo.</strong>
+					</p>
+					<p>
+						Zaczynam od pytania: kim jest Twój klient? Co go przekonuje, czego
+						się obawia, dlaczego wybiera kogoś innego?
+					</p>
+					<p>
+						Dopiero wtedy projektuję układ, treść i komunikat{" "}
+						<strong>pod tę jedną osobę</strong>, nie pod Twój gust, tylko pod
+						moment, w którym podejmuje decyzję.
+					</p>
+					<p>
+						Efekt? Strona, która mówi językiem klienta i{" "}
+						<strong>prowadzi go do kontaktu</strong>, zamiast tylko dobrze
+						wyglądać.
+					</p>
+				</div>
+
+				<a
+					href="#contact"
+					class="inline-flex w-fit justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
+				>
+					Porozmawiajmy o Twoim kliencie →
+				</a>
 			</div>
 		</div>
 	</div>

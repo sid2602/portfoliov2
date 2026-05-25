@@ -2,12 +2,13 @@
 import { Icon } from "astro-icon/components";
 
 const navLinks = [
-	{ label: "Benefits", href: "#benefits" },
-	{ label: "Services", href: "#services" },
-	{ label: "Process", href: "#process" },
-	{ label: "Work", href: "#work" },
-	{ label: "Experience", href: "#experience" },
-	{ label: "Contact", href: "#contact" },
+	{ label: "Korzyści", href: "#benefits" },
+	{ label: "Oferta", href: "#services" },
+	{ label: "Proces", href: "#process" },
+	{ label: "Realizacje", href: "#work" },
+	{ label: "Doświadczenie", href: "#experience" },
+	{ label: "FAQ", href: "#faq" },
+	{ label: "Kontakt", href: "#contact" },
 ] as const;
 
 const socialLinks = [
@@ -36,13 +37,13 @@ const year = new Date().getFullYear();
 					<span class="text-primary">Kornaus</span>
 				</a>
 				<p class="max-w-sm text-white/55">
-					Building fast, polished websites and product experiences that
-					help businesses grow.
+					Strony i produkty cyfrowe, które budują zaufanie i prowadzą do
+					kontaktu — od projektu po uruchomienie.
 				</p>
 			</div>
 
 			<nav aria-label="Footer">
-				<p class="text-base font-semibold text-white">Navigate</p>
+				<p class="text-base font-semibold text-white">Nawigacja</p>
 				<ul class="mt-4 grid grid-cols-2 gap-x-8 gap-y-2">
 					{
 						navLinks.map((link) => (
@@ -60,7 +61,7 @@ const year = new Date().getFullYear();
 			</nav>
 
 			<div>
-				<p class="text-base font-semibold text-white">Get in touch</p>
+				<p class="text-base font-semibold text-white">Kontakt</p>
 				<ul class="mt-4 flex flex-col gap-3">
 					<li>
 						<a
@@ -77,7 +78,7 @@ const year = new Date().getFullYear();
 					</li>
 					<li>
 						<p class="text-base text-white/55">
-							Available for freelance and contract work.
+							Dostępny do współpracy przy stronach i produktach cyfrowych.
 						</p>
 					</li>
 				</ul>
@@ -88,7 +89,7 @@ const year = new Date().getFullYear();
 			class="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
 		>
 			<p class="text-base text-white/45">
-				&copy; {year} Filip Kornaus. All rights reserved.
+				&copy; {year} Filip Kornaus. Wszelkie prawa zastrzeżone.
 			</p>
 
 			<ul class="flex items-center gap-3">

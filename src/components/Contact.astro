@@ -2,9 +2,9 @@
 import { Icon } from "astro-icon/components";
 
 const highlights = [
-	"Tell me about your product, timeline, and goals.",
-	"I usually reply within one business day.",
-	"Prefer email? Reach out at hello@example.com",
+	"Opisz firmę, branżę i efekt, jaki ma dać strona",
+	"Odpowiadam zwykle w ciągu jednego dnia roboczego",
+	"Po wiadomości umawiamy krótką, darmową rozmowę bez zobowiązań",
 ] as const;
 ---
 
@@ -25,9 +25,9 @@ const highlights = [
 						id="contact-heading"
 						class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl lg:text-5xl"
 					>
-						<span data-contact-line>Let's Build</span>
+						<span data-contact-line>Porozmawiajmy o</span>
 						<span data-contact-line class="block text-primary"
-							>Something Great</span
+							>Twojej stronie</span
 						>
 					</h2>
 
@@ -35,16 +35,15 @@ const highlights = [
 						class="mt-4 text-xl text-black/55 lg:text-2xl"
 						data-contact-lead
 					>
-						Have a project in mind or want to collaborate? Send a
-						message and we can talk through scope, timeline, and
-						next steps.
+						Chcesz witrynę, która zbiera zapytania? Napisz kilka słów o firmie,
+						a ustalimy zakres, termin i kolejne kroki.
 					</p>
 				</div>
 
 				<p class="text-black/55" data-contact-body>
-					Whether you need a marketing site, product UI, or a full
-					front-end build, share as much context as you can. The more I
-					know upfront, the faster we can align on a plan.
+					Im więcej napiszesz o biznesie, klientach i oczekiwaniach, tym szybciej
+					przygotuję konkretną propozycję. Bez zobowiązań i bez sztywnego
+					formularza ofertowego.
 				</p>
 
 				<ul class="flex flex-col gap-3" data-contact-highlights>
@@ -78,7 +77,7 @@ const highlights = [
 								for="contact-name"
 								class="text-base font-semibold text-black"
 							>
-								Name
+								Imię
 							</label>
 							<input
 								id="contact-name"
@@ -86,7 +85,7 @@ const highlights = [
 								type="text"
 								autocomplete="name"
 								required
-								placeholder="Your name"
+								placeholder="Twoje imię"
 								class="rounded-lg border border-black/10 bg-background px-4 py-3 text-base text-black outline-none transition-[border-color,box-shadow] placeholder:text-black/35 focus:border-primary focus:ring-2 focus:ring-primary/20"
 							/>
 						</div>
@@ -104,7 +103,7 @@ const highlights = [
 								type="email"
 								autocomplete="email"
 								required
-								placeholder="you@company.com"
+								placeholder="ty@firma.pl"
 								class="rounded-lg border border-black/10 bg-background px-4 py-3 text-base text-black outline-none transition-[border-color,box-shadow] placeholder:text-black/35 focus:border-primary focus:ring-2 focus:ring-primary/20"
 							/>
 						</div>
@@ -115,9 +114,9 @@ const highlights = [
 							for="contact-company"
 							class="text-base font-semibold text-black"
 						>
-							Company
+							Firma
 							<span class="font-normal text-black/45"
-								>(optional)</span
+								>(opcjonalnie)</span
 							>
 						</label>
 						<input
@@ -125,7 +124,7 @@ const highlights = [
 							name="company"
 							type="text"
 							autocomplete="organization"
-							placeholder="Company or project name"
+							placeholder="Nazwa firmy lub projektu"
 							class="rounded-lg border border-black/10 bg-background px-4 py-3 text-base text-black outline-none transition-[border-color,box-shadow] placeholder:text-black/35 focus:border-primary focus:ring-2 focus:ring-primary/20"
 						/>
 					</div>
@@ -135,14 +134,14 @@ const highlights = [
 							for="contact-message"
 							class="text-base font-semibold text-black"
 						>
-							Message
+							Wiadomość
 						</label>
 						<textarea
 							id="contact-message"
 							name="message"
 							required
 							rows="5"
-							placeholder="Describe your project, goals, and timeline..."
+							placeholder="Np. czym się zajmujesz, jaki efekt chcesz osiągnąć i kiedy chcesz wystartować…"
 							class="min-h-[140px] resize-y rounded-lg border border-black/10 bg-background px-4 py-3 text-base text-black outline-none transition-[border-color,box-shadow] placeholder:text-black/35 focus:border-primary focus:ring-2 focus:ring-primary/20"
 						></textarea>
 					</div>
@@ -151,7 +150,7 @@ const highlights = [
 						type="submit"
 						class="inline-flex w-full justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90 sm:w-auto sm:self-start"
 					>
-						Send message
+						Wyślij wiadomość
 					</button>
 
 					<p
@@ -160,8 +159,7 @@ const highlights = [
 						aria-live="polite"
 						data-contact-success
 					>
-						Thanks — your message is ready to send. Connect a form
-						handler (e.g. Formspree) to deliver it.
+						Dziękuję! Twoja wiadomość jest gotowa do wysłania.
 					</p>
 				</form>
 			</div>
