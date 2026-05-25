@@ -90,7 +90,7 @@
 
 **Podtytuł (opcjonalnie pod nagłówkiem):**
 
-> Nie oddaję samego pliku HTML. Dostarczam kompletne narzędzie do pozyskiwania klientów online.
+> Każdy element poniżej ma jeden cel: żeby więcej odwiedzin zamieniało się w nowych klientów dla Twojej firmy.
 
 **Kafelek 1: Projekt i kodowanie**
 

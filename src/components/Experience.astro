@@ -7,15 +7,15 @@ const experiences = [
 		industry: "KSIĘGOWOŚĆ KORPORACYJNA",
 		icon: "lucide:building-2",
 		description:
-			"Księgowość korporacyjna: software, który łączy komunikację firmy z jej produktami w jedną całość, dzięki czemu klient widzi spójną ofertę, a zespół nie traci czasu na przełączanie się między rozproszonymi systemami.",
+			"Oprogramowanie dla księgowości korporacyjnej: integracja komunikacji z produktami w jednym ekosystemie. Klient widzi spójną ofertę, a zespół mniej przełącza się między rozproszonymi systemami.",
 		side: "left",
 	},
 	{
 		company: "Playbook Engineering",
-		industry: "BUKMACHERKA",
+		industry: "ZAKŁADY SPORTOWE ONLINE",
 		icon: "lucide:shield-check",
 		description:
-			"Platforma bukmacherska: płatności online i zabezpieczenia ograniczające ryzyko uzależnienia graczy, zaprojektowane pod restrykcyjne wymogi prawne, gdzie każdy element produktu musi działać bez zarzutu.",
+			"Platforma zakładów sportowych: płatności online i mechanizmy odpowiedzialnej gry, zaprojektowane zgodnie z restrykcyjnymi wymogami regulacyjnymi, gdzie każdy element produktu musi działać niezawodnie.",
 		side: "right",
 	},
 	{
@@ -23,7 +23,7 @@ const experiences = [
 		industry: "SOFTWARE HOUSE",
 		icon: "lucide:rocket",
 		description:
-			"MVP dla startupów w różnych branżach i technologiach: produkty, które dało się pokazać użytkownikom i inwestorom, a nie tylko opisać na slajdach, w wyniku czego wiele z tych aplikacji otrzymywało wielomilionowe dofinansowania.",
+			"MVP dla startupów w różnych branżach: działające produkty zamiast koncepcji na slajdach. Na tej podstawie wiele z nich pozyskało wielomilionowe dofinansowanie.",
 		side: "left",
 	},
 ] as const;
@@ -44,7 +44,9 @@ const experiences = [
 				id="experience-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-3xl sm:text-4xl lg:text-5xl"
 			>
-				<span data-experience-line class="text-primary">Doświadczenie</span>
+				<span data-experience-line class="text-primary"
+					>Doświadczenie</span
+				>
 				<span data-experience-line class="block text-black"
 					>z kilku branż</span
 				>
@@ -54,8 +56,9 @@ const experiences = [
 				class="mt-4 text-base text-black/55 sm:text-lg"
 				data-experience-intro
 			>
-				Korporacja, bukmacherka, software house i własny produkt. To, czego się
-				nauczyłem tam, przekładam dziś na strony i aplikacje dla klientów.
+				Korporacja, regulowany sektor online, software house.
+				Doświadczenie z tych środowisk przekładam dziś na strony i
+				aplikacje dla klientów.
 			</p>
 		</header>
 
@@ -81,13 +84,11 @@ const experiences = [
 						]}
 						data-experience-item
 					>
-						<div
-							class="relative col-start-1 row-start-1 w-(--experience-track) md:col-start-2 md:row-start-1 md:flex md:w-auto md:justify-center"
-						>
+						<div class="relative col-start-1 row-start-1 w-(--experience-track) md:col-start-2 md:row-start-1 md:flex md:w-auto md:justify-center">
 							<div
 								class="absolute top-6 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-black md:relative md:top-auto md:left-auto md:translate-x-0"
 								aria-hidden="true"
-							></div>
+							/>
 						</div>
 
 						<div

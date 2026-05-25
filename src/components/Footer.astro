@@ -12,7 +12,11 @@ const navLinks = [
 ] as const;
 
 const socialLinks = [
-	{ label: "LinkedIn", href: "https://linkedin.com", icon: "lucide:linkedin" },
+	{
+		label: "LinkedIn",
+		href: "https://linkedin.com",
+		icon: "lucide:linkedin",
+	},
 	{ label: "Email", href: "mailto:hello@example.com", icon: "lucide:mail" },
 ] as const;
 
@@ -23,7 +27,9 @@ const year = new Date().getFullYear();
 	class="border-t border-white/[0.08] bg-[#0f172a] text-white"
 	aria-labelledby="footer-heading"
 >
-	<div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 xl:max-w-[1320px]">
+	<div
+		class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14 xl:max-w-[1320px]"
+	>
 		<div
 			class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-12"
 		>
@@ -37,8 +43,8 @@ const year = new Date().getFullYear();
 					<span class="text-primary">Kornaus</span>
 				</a>
 				<p class="max-w-sm text-white/55">
-					Strony i produkty cyfrowe, które budują zaufanie i prowadzą do
-					kontaktu — od projektu po uruchomienie.
+					Aplikacje i strony, które budują zaufanie i wspierają
+					sprzedaż online. Od projektu po uruchomienie.
 				</p>
 			</div>
 
@@ -78,7 +84,8 @@ const year = new Date().getFullYear();
 					</li>
 					<li>
 						<p class="text-base text-white/55">
-							Dostępny do współpracy przy stronach i produktach cyfrowych.
+							Dostępny do współpracy przy stronach i produktach
+							cyfrowych.
 						</p>
 					</li>
 				</ul>
@@ -100,8 +107,16 @@ const year = new Date().getFullYear();
 								href={link.href}
 								class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white/55 transition-colors hover:border-primary/40 hover:bg-offer-icon-bg hover:text-primary"
 								aria-label={link.label}
-								target={link.href.startsWith("http") ? "_blank" : undefined}
-								rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+								target={
+									link.href.startsWith("http")
+										? "_blank"
+										: undefined
+								}
+								rel={
+									link.href.startsWith("http")
+										? "noopener noreferrer"
+										: undefined
+								}
 							>
 								<Icon
 									name={link.icon}

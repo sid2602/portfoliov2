@@ -4,15 +4,15 @@ import { Icon } from "astro-icon/components";
 const checklistItems = [
 	{
 		highlight: "Konkurencja przestaje wygrywać samym wyglądem",
-		rest: "klienci widzą, dlaczego warto wybrać Ciebie, nie innego",
-	},
-	{
-		highlight: "Klienci od razu wiedzą, co oferujesz",
-		rest: "bez domyślania i pytań „czym się zajmujecie?”",
+		rest: "klienci widzą, dlaczego warto wybrać Ciebie",
 	},
 	{
 		highlight: "Wyglądasz jak firma godna wyższej ceny",
 		rest: "pierwsze wrażenie buduje wartość, nie tylko „ładną wizytówkę”",
+	},
+	{
+		highlight: "Klienci od razu wiedzą, co oferujesz",
+		rest: "bez domyślania i pytań „czym się zajmujecie?”",
 	},
 ] as const;
 
@@ -168,7 +168,7 @@ const stats = [
 								class="row-start-1 size-6 shrink-0 self-end text-icon sm:size-7 md:size-8"
 								aria-hidden="true"
 							/>
-							<span class="row-start-2 text-center text-xl font-bold leading-none text-black/80 sm:text-2xl md:text-3xl">
+							<span class="row-start-2 text-center text-xl font-bold leading-none text-black/80 sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl">
 								{stat.value}
 							</span>
 							<span class="row-start-3 self-start text-center text-xs leading-tight text-black/60 sm:text-sm">

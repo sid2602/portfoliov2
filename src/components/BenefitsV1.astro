@@ -3,16 +3,19 @@ import { Icon } from "astro-icon/components";
 
 const features = [
 	{
-		title: "Widoczność tam, gdzie szukają",
-		description:
-			"97% osób szuka firm online. Strona dopasowana do Twojej branży i okolicy sprawia, że znajdują Ciebie, zanim trafią do konkurencji.",
-	},
-	{
+		icon: "lucide:trending-up",
 		title: "Więcej zapytań z tej samej liczby odwiedzin",
 		description:
 			"Przemyślany układ i treści pod realne obiekcje klientów podnoszą konwersję nawet o 200%. Więcej wizyt zamienia się w telefony i rezerwacje, bez dokładania budżetu na reklamę.",
 	},
 	{
+		icon: "lucide:search",
+		title: "Widoczność tam, gdzie szukają",
+		description:
+			"97% osób szuka firm online. Strona dopasowana do Twojej branży i okolicy sprawia, że znajdują Ciebie, zanim trafią do konkurencji.",
+	},
+	{
+		icon: "lucide:shield-check",
 		title: "Zaufanie od pierwszego spojrzenia",
 		description:
 			"75% osób ocenia wiarygodność firmy po stronie www. Masz około 50 milisekund na dobre pierwsze wrażenie: albo zostają, albo odchodzą.",
@@ -58,30 +61,32 @@ const features = [
 							class="max-w-md text-xl text-black/55 lg:pt-1 lg:text-2xl"
 							data-benefits-intro
 						>
-							Zanim zadzwonią, klienci sprawdzają Cię w sieci. Dobra strona to
-							nie koszt wizytówki, lecz narzędzie, które <strong>buduje zaufanie i prowadzi do kontaktu</strong>,
-							bez Twojego stałego nadzoru.
+							Zanim zadzwonią, klienci sprawdzają Cię w sieci.
+							Dobra strona to nie koszt wizytówki, lecz narzędzie,
+							które <strong
+								>buduje zaufanie i prowadzi do kontaktu</strong
+							>, bez Twojego stałego nadzoru.
 						</p>
 					</div>
 
 					<div
-						class="mt-8 grid gap-8 md:mt-9 md:grid-cols-3 md:gap-6 lg:mt-10"
+						class="mt-8 grid gap-8 md:mt-9 md:grid-cols-3 md:grid-rows-[auto_auto_1fr] md:gap-x-6 md:gap-y-3 lg:mt-10"
 					>
 						{
 							features.map((feature) => (
 								<article
-									class="flex flex-col gap-3"
+									class="grid grid-rows-[auto_auto_1fr] items-start gap-3 md:grid-rows-subgrid md:row-span-3"
 									data-benefits-feature
 								>
 									<Icon
-										name="lucide:user"
-										class="h-10 w-10 text-icon"
+										name={feature.icon}
+										class="block size-10 shrink-0 text-icon"
 										aria-hidden="true"
 									/>
-									<h3 class="text-xl font-bold text-black">
+									<h3 class="m-0 text-xl leading-snug font-bold text-black">
 										{feature.title}
 									</h3>
-									<p class="text-black/55">
+									<p class="m-0 text-black/55">
 										{feature.description}
 									</p>
 								</article>

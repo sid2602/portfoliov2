@@ -3,31 +3,37 @@ import { Icon } from "astro-icon/components";
 
 const offers = [
 	{
+		icon: "lucide:code-xml",
 		title: "Projekt i kodowanie",
 		description:
 			"Strona od zera pod Twój biznes i grupę docelową. Szybka, mobilna i gotowa do uruchomienia.",
 	},
 	{
+		icon: "lucide:search",
 		title: "Optymalizacja SEO",
 		description:
 			"Widoczność tam, gdzie ludzie wpisują frazy związane z Twoją usługą, lokalnie i w całej Polsce.",
 	},
 	{
+		icon: "lucide:pen-line",
 		title: "Treści sprzedażowe",
 		description:
 			"Nagłówki, opisy i komunikaty pisane pod Twojego klienta. Jasno tłumaczą ofertę i zachęcają do kontaktu, zamiast brzmieć jak szablon z internetu.",
 	},
 	{
+		icon: "lucide:chart-column",
 		title: "Analityka i śledzenie konwersji",
 		description:
 			"Wiesz, skąd przychodzą leady i które podstrony realnie przynoszą zapytania.",
 	},
 	{
+		icon: "lucide:life-buoy",
 		title: "Opieka po wdrożeniu",
 		description:
 			"Nie znikam po starcie. Aktualizuję, poprawiam i rozwijam stronę wraz z Twoim biznesem.",
 	},
 	{
+		icon: "lucide:route",
 		title: "Architektura pod konwersję",
 		description:
 			'Każdy nagłówek, sekcja i przycisk ma jedno zadanie: skrócić drogę od „przeglądam” do „piszę / dzwonię”.',
@@ -58,8 +64,8 @@ const offers = [
 				</h2>
 
 				<p class="mt-4 max-w-xl text-lg text-offer-text-muted">
-					Nie oddaję samego pliku HTML. Dostarczam kompletne narzędzie do
-					pozyskiwania klientów online.
+					Każdy element poniżej ma jeden cel: żeby więcej odwiedzin zamieniało
+					się w nowych klientów dla Twojej firmy.
 				</p>
 
 				<div
@@ -76,7 +82,7 @@ const offers = [
 									aria-hidden="true"
 								>
 									<Icon
-										name="lucide:code-xml"
+										name={item.icon}
 										class="h-5 w-5 text-icon"
 									/>
 								</div>
