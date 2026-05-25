@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <section
@@ -25,14 +26,16 @@
 				class="mt-4 max-w-2xl text-xl text-black/55 lg:text-2xl"
 				data-benefits2-intro
 			>
-				Ładna witryna to za mało. Liczy się to, czy prowadzi odwiedzającego do
-				<strong>konkretnego kroku</strong>: telefonu, formularza, rezerwacji.
+				Ładna witryna to za mało. Liczy się to, czy prowadzi
+				odwiedzającego do
+				<strong>konkretnego kroku</strong>: telefonu, formularza,
+				rezerwacji.
 			</p>
 		</header>
 
-		<div class="mt-8 grid gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
+		<div class="mt-8 grid min-w-0 gap-6 sm:mt-10 lg:grid-cols-2 lg:gap-8">
 			<div
-				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec]"
+				class="aspect-[4/3] min-w-0 w-full rounded-2xl bg-[#e4e7ec]"
 				role="img"
 				aria-label="Zdjęcie — miejsce na grafikę"
 				data-benefits2-media
@@ -40,27 +43,29 @@
 			</div>
 
 			<div
-				class="flex aspect-[4/3] w-full flex-col justify-center gap-5 rounded-2xl bg-background-secondary px-6 py-8 sm:px-8 lg:px-10"
+				class="flex min-w-0 w-full flex-col justify-center gap-5 rounded-2xl bg-background-secondary px-6 py-8 sm:px-8 lg:aspect-[4/3] lg:px-10"
 				data-benefits2-card
 			>
 				<div class="flex flex-col gap-4 text-black/55">
 					<p>
-						Większość stron jest zrobiona „dla wszystkich”, i właśnie dlatego{" "}
+						Większość stron jest zrobiona „dla wszystkich”, i
+						właśnie dlatego{" "}
 						<strong>nie przekonuje nikogo.</strong>
 					</p>
 					<p>
-						Zaczynam od pytania: kim jest Twój klient? Co go przekonuje, czego
-						się obawia, dlaczego wybiera kogoś innego?
+						Zaczynam od pytania: kim jest Twój klient? Co go
+						przekonuje, czego się obawia, dlaczego wybiera kogoś
+						innego?
 					</p>
 					<p>
 						Dopiero wtedy projektuję układ, treść i komunikat{" "}
-						<strong>pod tę jedną osobę</strong>, nie pod Twój gust, tylko pod
-						moment, w którym podejmuje decyzję.
+						<strong>pod tę jedną osobę</strong>, nie pod Twój gust,
+						tylko pod moment, w którym podejmuje decyzję.
 					</p>
 					<p>
 						Efekt? Strona, która mówi językiem klienta i{" "}
-						<strong>prowadzi go do kontaktu</strong>, zamiast tylko dobrze
-						wyglądać.
+						<strong>prowadzi go do kontaktu</strong>, zamiast tylko
+						dobrze wyglądać.
 					</p>
 				</div>
 
@@ -76,9 +81,9 @@
 </section>
 
 <script>
-	import { initBenefits2Animations } from '../scripts/benefits2-animations';
+	import { initBenefits2Animations } from "../scripts/benefits2-animations";
 
-	const benefits2 = document.querySelector('[data-benefits2]');
+	const benefits2 = document.querySelector("[data-benefits2]");
 
 	if (benefits2 instanceof HTMLElement) {
 		initBenefits2Animations(benefits2);

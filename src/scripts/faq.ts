@@ -19,7 +19,16 @@ export function initFaq(root: HTMLElement) {
 
 		setFaqOpen(trigger, false);
 
-		trigger.addEventListener("click", () => {
+		trigger.addEventListener("click", (event) => {
+			const target = event.target;
+
+			if (
+				target instanceof HTMLAnchorElement ||
+				(target instanceof Element && target.closest("a"))
+			) {
+				return;
+			}
+
 			const open = trigger.getAttribute("aria-expanded") === "true";
 			setFaqOpen(trigger, !open);
 		});

@@ -1,5 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
+import { siteName } from "../config/site";
+
+const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY ?? "";
 
 const highlights = [
 	"Opisz firmę, branżę i efekt, jaki ma dać strona",
@@ -18,7 +21,9 @@ const highlights = [
 		class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
 		data-contact-content
 	>
-		<div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+		<div
+			class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16"
+		>
 			<div class="flex flex-col gap-5 sm:gap-6">
 				<div>
 					<h2
@@ -35,15 +40,16 @@ const highlights = [
 						class="mt-4 text-xl text-black/55 lg:text-2xl"
 						data-contact-lead
 					>
-						Chcesz witrynę, która zbiera zapytania? Napisz kilka słów o firmie,
-						a ustalimy zakres, termin i kolejne kroki.
+						Chcesz witrynę, która zbiera zapytania? Napisz kilka
+						słów o firmie, a ustalimy zakres, termin i kolejne
+						kroki.
 					</p>
 				</div>
 
 				<p class="text-black/55" data-contact-body>
-					Im więcej napiszesz o biznesie, klientach i oczekiwaniach, tym szybciej
-					przygotuję konkretną propozycję. Bez zobowiązań i bez sztywnego
-					formularza ofertowego.
+					Im więcej napiszesz o biznesie, klientach i oczekiwaniach,
+					tym szybciej przygotuję konkretną propozycję. Bez zobowiązań
+					i bez sztywnego formularza ofertowego.
 				</p>
 
 				<ul class="flex flex-col gap-3" data-contact-highlights>
@@ -68,9 +74,30 @@ const highlights = [
 			>
 				<form
 					class="flex flex-col gap-5"
+					action="https://api.web3forms.com/submit"
+					method="POST"
 					data-contact-form
 					novalidate
 				>
+					<input
+						type="hidden"
+						name="access_key"
+						value={web3formsAccessKey}
+					/>
+					<input
+						type="hidden"
+						name="subject"
+						value="Nowe zapytanie ze strony"
+					/>
+					<input type="hidden" name="from_name" value={siteName} />
+					<input
+						type="checkbox"
+						name="botcheck"
+						class="hidden"
+						style="display: none"
+						tabindex="-1"
+						autocomplete="off"
+					/>
 					<div class="grid gap-5 sm:grid-cols-2">
 						<div class="flex flex-col gap-2">
 							<label
@@ -95,7 +122,7 @@ const highlights = [
 								for="contact-email"
 								class="text-base font-semibold text-black"
 							>
-								Email
+								Twój email
 							</label>
 							<input
 								id="contact-email"
@@ -146,9 +173,14 @@ const highlights = [
 						></textarea>
 					</div>
 
+					<div data-contact-captcha>
+						<div class="h-captcha" data-captcha="true"></div>
+					</div>
+
 					<button
 						type="submit"
-						class="inline-flex w-full justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90 sm:w-auto sm:self-start"
+						class="inline-flex w-full justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:self-start"
+						data-contact-submit
 					>
 						Wyślij wiadomość
 					</button>
@@ -159,7 +191,26 @@ const highlights = [
 						aria-live="polite"
 						data-contact-success
 					>
-						Dziękuję! Twoja wiadomość jest gotowa do wysłania.
+						Dziękuję! Twoja wiadomość została wysłana.
+					</p>
+
+					<p
+						class="hidden text-base text-red-600"
+						role="alert"
+						aria-live="assertive"
+						data-contact-captcha-error
+					>
+						Potwierdź captcha przed wysłaniem wiadomości.
+					</p>
+
+					<p
+						class="hidden text-base text-red-600"
+						role="alert"
+						aria-live="assertive"
+						data-contact-error
+					>
+						Nie udało się wysłać wiadomości. Spróbuj ponownie za
+						chwilę.
 					</p>
 				</form>
 			</div>
@@ -190,3 +241,9 @@ const highlights = [
 		}
 	}
 </style>
+
+<script
+	is:inline
+	src="https://web3forms.com/client/script.js"
+	async
+	defer></script>

@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { contactEmail } from "../config/site";
 
 const navLinks = [
 	{ label: "Korzyści", href: "#benefits" },
@@ -17,7 +18,11 @@ const socialLinks = [
 		href: "https://linkedin.com",
 		icon: "lucide:linkedin",
 	},
-	{ label: "Email", href: "mailto:hello@example.com", icon: "lucide:mail" },
+	{
+		label: "Email",
+		href: `mailto:${contactEmail}`,
+		icon: "lucide:mail",
+	},
 ] as const;
 
 const year = new Date().getFullYear();
@@ -71,7 +76,7 @@ const year = new Date().getFullYear();
 				<ul class="mt-4 flex flex-col gap-3">
 					<li>
 						<a
-							href="mailto:hello@example.com"
+							href={`mailto:${contactEmail}`}
 							class="inline-flex items-center gap-2 text-base text-white/55 transition-colors hover:text-primary"
 						>
 							<Icon
@@ -79,7 +84,7 @@ const year = new Date().getFullYear();
 								class="h-4 w-4 shrink-0"
 								aria-hidden="true"
 							/>
-							hello@example.com
+							{contactEmail}
 						</a>
 					</li>
 					<li>
