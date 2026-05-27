@@ -28,6 +28,8 @@ const stats = [
 		icon: "lucide:users",
 	},
 ] as const;
+
+const assetBase = import.meta.env.BASE_URL;
 ---
 
 <section
@@ -36,7 +38,7 @@ const stats = [
 	data-hero
 >
 	<img
-		src="/background-grid.svg"
+		src={`${assetBase}background-grid.svg`}
 		alt=""
 		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-left-top lg:object-center"
 		width="1512"
@@ -123,7 +125,7 @@ const stats = [
 			class="relative mx-auto flex w-full max-w-[280px] flex-1 flex-col items-center sm:max-w-md lg:mx-0 lg:max-w-lg pb-8"
 		>
 			<img
-				src="/background-effect2.svg"
+				src={`${assetBase}background-effect2.svg`}
 				alt=""
 				class="pointer-events-none absolute bottom-12 right-0 z-0 w-24 sm:bottom-20 sm:w-32 lg:bottom-32 lg:w-40"
 				width="226"
@@ -133,7 +135,7 @@ const stats = [
 				data-hero-effect
 			/>
 			<img
-				src="/background-effect1.svg"
+				src={`${assetBase}background-effect1.svg`}
 				alt=""
 				class="pointer-events-none absolute right-0 top-0 z-0 w-28 opacity-90 sm:right-1/4 sm:w-40 lg:right-[12%] lg:w-48"
 				width="290"
@@ -144,7 +146,7 @@ const stats = [
 			/>
 
 			<img
-				src="/hero.png"
+				src={`${assetBase}hero.png`}
 				alt="Filip — zdjęcie w sekcji hero"
 				class="relative z-10 mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] md:max-w-[360px] lg:max-w-[433px] lg:max-h-[576px]"
 				width="433"

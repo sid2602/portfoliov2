@@ -29,6 +29,8 @@ const steps = [
 			"Publikuję stronę, konfiguruję SEO i analitykę. Od pierwszego dnia widzisz ruch i wiesz, ile osób przechodzi do kontaktu z Twoją firmą.",
 	},
 ] as const;
+
+const assetBase = import.meta.env.BASE_URL;
 ---
 
 <section
@@ -38,7 +40,7 @@ const steps = [
 	data-process
 >
 	<img
-		src="/background-grid2.svg"
+		src={`${assetBase}background-grid2.svg`}
 		alt=""
 		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
 		width="1512"

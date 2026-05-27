@@ -1,9 +1,8 @@
 ---
-
+const assetBase = import.meta.env.BASE_URL;
 ---
 
 <section
-	class="bg-background"
 	aria-labelledby="split-content-heading"
 	data-benefits2
 >
@@ -39,7 +38,7 @@
 				data-benefits2-media
 			>
 				<img
-					src="/benefitsv2r.webp"
+					src={`${assetBase}benefitsv2r.webp`}
 					alt="Laptop z otwartym projektem strony w Figma — szkic pod decyzję klienta"
 					class="h-full w-full object-cover"
 					width="1280"

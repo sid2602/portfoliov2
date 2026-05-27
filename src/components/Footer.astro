@@ -26,6 +26,7 @@ const socialLinks = [
 ] as const;
 
 const year = new Date().getFullYear();
+const homeHref = import.meta.env.BASE_URL;
 ---
 
 <footer
@@ -41,7 +42,7 @@ const year = new Date().getFullYear();
 			<div class="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
 				<p id="footer-heading" class="sr-only">Site footer</p>
 				<a
-					href="/"
+					href={homeHref}
 					class="flex w-fit items-center gap-1 font-[Montserrat,system-ui,sans-serif] text-lg font-extrabold tracking-tight sm:text-xl"
 				>
 					<span>Filip</span>

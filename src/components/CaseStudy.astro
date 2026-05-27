@@ -3,6 +3,8 @@ const paragraphs = [
 	"Większość kreatorów CV kończy na szablonie. Użytkownik i tak ręcznie dopasowuje treść pod każde ogłoszenie i gubi wątki, gdzie już aplikował. Stąd pomysł na jedno miejsce: profesjonalne CV, dopasowanie pod ofertę, szablony pod ATS i porządek w rekrutacjach.",
 	"Zaprojektowałem i wdrożyłem produkt end to end: landing sprzedażowy, logika aplikacji, optymalizacja AI pod stanowisko, import CV, odczyt ogłoszeń ze zrzutu ekranu, eksport PDF, plany cenowe i responsywny interfejs. Działa w produkcji na cvcreatorhub.com i pokazuje, że buduję nie tylko strony firmowe, lecz też złożone narzędzia gotowe na realnych użytkowników.",
 ] as const;
+
+const assetBase = import.meta.env.BASE_URL;
 ---
 
 <section
@@ -36,7 +38,7 @@ const paragraphs = [
 				</div>
 
 				<img
-					src="/case.webp"
+					src={`${assetBase}case.webp`}
 					alt="Podgląd interfejsu CV Creator Hub — dopasowanie CV, sugestie AI i śledzenie aplikacji"
 					class="relative h-full w-full rounded-2xl object-contain"
 					width="800"

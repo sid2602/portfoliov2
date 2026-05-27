@@ -1,4 +1,4 @@
-# build output
+# build output (local only; GitHub Pages uses committed ./docs/)
 dist/
 
 # generated types
