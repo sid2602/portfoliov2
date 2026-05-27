@@ -17,11 +17,33 @@ const paragraphs = [
 	>
 		<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
 			<div
-				class="aspect-[4/3] w-full rounded-2xl bg-[#e4e7ec] lg:aspect-[5/4]"
-				role="img"
-				aria-label="Zrzut ekranu projektu CV Creator Hub"
+				class="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-2xl bg-[#f4f4f8] p-4 shadow-[0_10px_30px_rgba(15,23,42,0.06)] ring-1 ring-black/5 sm:p-6 lg:aspect-square lg:p-8"
 				data-case-study-media
 			>
+				<div
+					class="pointer-events-none absolute inset-0 flex items-center justify-center"
+					aria-hidden="true"
+				>
+					<div
+						class="h-[520px] w-[520px] sm:h-[720px] sm:w-[720px] lg:h-[920px] lg:w-[920px]"
+						style={{
+							background:
+								"radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, rgba(168, 85, 247, 0.10) 35%, rgba(196, 181, 253, 0.07) 55%, rgba(244, 244, 248, 0) 78%)",
+							filter: "blur(100px)",
+						}}
+					>
+					</div>
+				</div>
+
+				<img
+					src="/case.webp"
+					alt="Podgląd interfejsu CV Creator Hub — dopasowanie CV, sugestie AI i śledzenie aplikacji"
+					class="relative h-full w-full rounded-2xl object-contain"
+					width="800"
+					height="800"
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 
 			<div class="flex flex-col gap-5 sm:gap-6">
