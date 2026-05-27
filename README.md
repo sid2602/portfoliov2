@@ -48,6 +48,8 @@ This repo is a [project site](https://docs.github.com/en/pages/getting-started-w
 1. **Settings → Pages** in [sid2602/portfoliov2](https://github.com/sid2602/portfoliov2): set **Source** to **Deploy from a branch**, branch **`main`**, folder **`/docs`**.
 2. After changing the site, run `npm run build`, commit the updated `docs/` folder, and push to `main`.
 
+`public/.nojekyll` is copied into `docs/` on each build so GitHub Pages does not run Jekyll (which would otherwise ignore the `_astro/` CSS and JS folder).
+
 `site` and `base` are set in [`astro.config.mjs`](astro.config.mjs) for that URL. For a root domain later, set `base: '/'` and change `site` accordingly.
 
 Optional: put `WEB3FORMS_ACCESS_KEY` in `.env` (not committed) before `npm run build` so the contact form works on the deployed site.
