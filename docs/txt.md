@@ -96,9 +96,9 @@
 
 > Strona od zera pod Twój biznes i grupę docelową. Szybka, mobilna i gotowa do uruchomienia.
 
-**Kafelek 2: Optymalizacja SEO**
+**Kafelek 2: Optymalizacja SEO i GEO**
 
-> Widoczność tam, gdzie ludzie wpisują frazy związane z Twoją usługą, lokalnie i w całej Polsce.
+> Widoczność w wynikach wyszukiwania i w odpowiedziach z narzędzi AI tam, gdzie ludzie szukają usług jak Twoja, lokalnie i w całej Polsce.
 
 **Kafelek 3: Treści sprzedażowe**
 
@@ -114,7 +114,7 @@
 
 **Kafelek 6: Architektura pod konwersję**
 
-> Każdy nagłówek, sekcja i przycisk ma jedno zadanie: skrócić drogę od „przeglądam" do „piszę / dzwonię".
+> Każdy nagłówek, sekcja i przycisk ma jedno zadanie: skrócić drogę od „przeglądam" do momentu, w którym odwiedzający staje się klientem.
 
 ---
 

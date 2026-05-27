@@ -10,7 +10,6 @@ export function initOfferAnimations(root: HTMLElement) {
 
 	const headingLines = root.querySelectorAll('[data-offer-line]');
 	const items = root.querySelectorAll('[data-offer-item]');
-	const media = root.querySelector('[data-offer-media]');
 
 	const trigger = root.querySelector('[data-offer-content]');
 
@@ -20,7 +19,6 @@ export function initOfferAnimations(root: HTMLElement) {
 
 	gsap.set(headingLines, { autoAlpha: 0, y: 18 });
 	gsap.set(items, { autoAlpha: 0, y: 20 });
-	gsap.set(media, { autoAlpha: 0, y: 24 });
 
 	const timeline = gsap.timeline({
 		scrollTrigger: {
@@ -48,13 +46,5 @@ export function initOfferAnimations(root: HTMLElement) {
 			},
 			'-=0.22',
 		)
-		.to(
-			media,
-			{
-				autoAlpha: 1,
-				y: 0,
-				duration: 0.5,
-			},
-			'-=0.35',
-		);
+		;
 }

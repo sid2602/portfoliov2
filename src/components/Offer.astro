@@ -10,9 +10,9 @@ const offers = [
 	},
 	{
 		icon: "lucide:search",
-		title: "Optymalizacja SEO",
+		title: "Optymalizacja SEO i GEO",
 		description:
-			"Widoczność tam, gdzie ludzie wpisują frazy związane z Twoją usługą, lokalnie i w całej Polsce.",
+			"Widoczność w wynikach wyszukiwania i w odpowiedziach z narzędzi AI tam, gdzie ludzie szukają usług jak Twoja, lokalnie i w całej Polsce.",
 	},
 	{
 		icon: "lucide:pen-line",
@@ -36,7 +36,7 @@ const offers = [
 		icon: "lucide:route",
 		title: "Architektura pod konwersję",
 		description:
-			'Każdy nagłówek, sekcja i przycisk ma jedno zadanie: skrócić drogę od „przeglądam” do „piszę / dzwonię”.',
+			"Każdy nagłówek, sekcja i przycisk ma jedno zadanie: skrócić drogę od „przeglądam” do momentu, w którym odwiedzający staje się klientem.",
 	},
 ] as const;
 ---
@@ -51,7 +51,7 @@ const offers = [
 		class="mx-auto max-w-7xl px-5 sm:px-8 xl:max-w-[1320px]"
 		data-offer-content
 	>
-		<div class="grid gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10">
+		<div class="grid gap-8 lg:gap-10">
 			<div class="flex flex-col">
 				<h2
 					id="offer-heading"
@@ -64,13 +64,11 @@ const offers = [
 				</h2>
 
 				<p class="mt-4 max-w-xl text-lg text-offer-text-muted">
-					Każdy element poniżej ma jeden cel: żeby więcej odwiedzin zamieniało
-					się w nowych klientów dla Twojej firmy.
+					Każdy element poniżej ma jeden cel: żeby więcej odwiedzin
+					zamieniało się w nowych klientów dla Twojej firmy.
 				</p>
 
-				<div
-					class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5"
-				>
+				<div class="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
 					{
 						offers.map((item) => (
 							<article
@@ -97,13 +95,6 @@ const offers = [
 					}
 				</div>
 			</div>
-
-			<div
-				class="min-h-[280px] w-full rounded-2xl bg-offer-media sm:min-h-[360px] lg:min-h-full"
-				role="img"
-				aria-label="Zdjęcie — miejsce na grafikę"
-				data-offer-media
-			></div>
 		</div>
 	</div>
 </section>
