@@ -5,25 +5,28 @@ type Web3FormsResponse = {
 	message?: string;
 };
 
-function getHCaptchaResponse(form: HTMLFormElement): string {
-	const captchaField = form.querySelector('textarea[name="h-captcha-response"]');
-
-	if (!(captchaField instanceof HTMLTextAreaElement)) {
-		return "";
-	}
-
-	return captchaField.value.trim();
+function isRecord(value: unknown): value is Record<string, unknown> {
+	return typeof value === "object" && value !== null;
 }
 
-function resetHCaptcha() {
-	window.hcaptcha?.reset();
+function parseWeb3FormsResponse(value: unknown): Web3FormsResponse {
+	if (!isRecord(value)) {
+		return { success: false, message: "Invalid response" };
+	}
+
+	const success = value.success;
+	const message = value.message;
+
+	return {
+		success: typeof success === "boolean" ? success : false,
+		message: typeof message === "string" ? message : undefined,
+	};
 }
 
 export function initContactForm(root: HTMLElement) {
 	const form = root.querySelector("[data-contact-form]");
 	const success = root.querySelector("[data-contact-success]");
 	const error = root.querySelector("[data-contact-error]");
-	const captchaError = root.querySelector("[data-contact-captcha-error]");
 	const submitButton = root.querySelector("[data-contact-submit]");
 
 	if (!(form instanceof HTMLFormElement) || !(success instanceof HTMLElement)) {
@@ -33,7 +36,7 @@ export function initContactForm(root: HTMLElement) {
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();
 
-		if (!(error instanceof HTMLElement) || !(captchaError instanceof HTMLElement)) {
+		if (!(error instanceof HTMLElement)) {
 			return;
 		}
 
@@ -44,12 +47,6 @@ export function initContactForm(root: HTMLElement) {
 
 		success.classList.add("hidden");
 		error.classList.add("hidden");
-		captchaError.classList.add("hidden");
-
-		if (!getHCaptchaResponse(form)) {
-			captchaError.classList.remove("hidden");
-			return;
-		}
 
 		if (submitButton instanceof HTMLButtonElement) {
 			submitButton.disabled = true;
@@ -72,7 +69,7 @@ export function initContactForm(root: HTMLElement) {
 				},
 			});
 
-			const result = (await response.json()) as Web3FormsResponse;
+			const result = parseWeb3FormsResponse(await response.json());
 
 			if (!response.ok || !result.success) {
 				throw new Error(result.message ?? "Submission failed");
@@ -80,7 +77,6 @@ export function initContactForm(root: HTMLElement) {
 
 			success.classList.remove("hidden");
 			form.reset();
-			resetHCaptcha();
 		} catch {
 			error.classList.remove("hidden");
 		} finally {

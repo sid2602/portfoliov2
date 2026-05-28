@@ -107,12 +107,25 @@ const assetBase = import.meta.env.BASE_URL;
 </section>
 
 <script>
-	import { initCaseStudyAnimations } from "../scripts/case-study-animations";
-
 	const caseStudy = document.querySelector("[data-case-study]");
 
-	if (caseStudy instanceof HTMLElement) {
-		initCaseStudyAnimations(caseStudy);
+	const shouldAnimate =
+		caseStudy instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/case-study-animations").then(
+				({ initCaseStudyAnimations }) => {
+					initCaseStudyAnimations(caseStudy);
+				},
+			);
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 

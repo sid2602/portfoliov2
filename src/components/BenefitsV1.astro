@@ -100,12 +100,25 @@ const features = [
 </div>
 
 <script>
-	import { initBenefitsAnimations } from "../scripts/benefits-animations";
-
 	const benefits = document.querySelector("[data-benefits-v1]");
 
-	if (benefits instanceof HTMLElement) {
-		initBenefitsAnimations(benefits);
+	const shouldAnimate =
+		benefits instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/benefits-animations").then(
+				({ initBenefitsAnimations }) => {
+					initBenefitsAnimations(benefits);
+				},
+			);
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 

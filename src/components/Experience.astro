@@ -145,12 +145,25 @@ const experiences = [
 </section>
 
 <script>
-	import { initExperienceAnimations } from "../scripts/experience-animations";
-
 	const experience = document.querySelector("[data-experience]");
 
-	if (experience instanceof HTMLElement) {
-		initExperienceAnimations(experience);
+	const shouldAnimate =
+		experience instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/experience-animations").then(
+				({ initExperienceAnimations }) => {
+					initExperienceAnimations(experience);
+				},
+			);
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 

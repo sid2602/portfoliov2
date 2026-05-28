@@ -6,6 +6,7 @@ function setFaqOpen(trigger: HTMLButtonElement, open: boolean) {
 
 	if (panel instanceof HTMLElement) {
 		panel.setAttribute("aria-hidden", String(!open));
+		panel.inert = !open;
 	}
 }
 

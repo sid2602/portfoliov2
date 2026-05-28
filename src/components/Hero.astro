@@ -146,12 +146,13 @@ const assetBase = import.meta.env.BASE_URL;
 			/>
 
 			<img
-				src={`${assetBase}hero.png`}
+				src={`${assetBase}hero.webp`}
 				alt="Filip — zdjęcie w sekcji hero"
 				class="relative z-10 mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] md:max-w-[360px] lg:max-w-[433px] lg:max-h-[576px]"
 				width="433"
 				height="576"
 				loading="eager"
+				fetchpriority="high"
 				decoding="async"
 				data-hero-portrait
 			/>
@@ -185,12 +186,23 @@ const assetBase = import.meta.env.BASE_URL;
 </section>
 
 <script>
-	import { initHeroAnimations } from "../scripts/hero-animations";
-
 	const hero = document.querySelector("[data-hero]");
 
-	if (hero instanceof HTMLElement) {
-		initHeroAnimations(hero);
+	const shouldAnimate =
+		hero instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/hero-animations").then(({ initHeroAnimations }) => {
+				initHeroAnimations(hero);
+			});
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 

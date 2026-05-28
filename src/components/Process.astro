@@ -109,12 +109,25 @@ const assetBase = import.meta.env.BASE_URL;
 </section>
 
 <script>
-	import { initProcessAnimations } from "../scripts/process-animations";
-
 	const process = document.querySelector("[data-process]");
 
-	if (process instanceof HTMLElement) {
-		initProcessAnimations(process);
+	const shouldAnimate =
+		process instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/process-animations").then(
+				({ initProcessAnimations }) => {
+					initProcessAnimations(process);
+				},
+			);
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 

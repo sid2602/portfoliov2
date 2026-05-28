@@ -173,10 +173,6 @@ const highlights = [
 						></textarea>
 					</div>
 
-					<div data-contact-captcha>
-						<div class="h-captcha" data-captcha="true"></div>
-					</div>
-
 					<button
 						type="submit"
 						class="inline-flex w-full justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:self-start"
@@ -198,15 +194,6 @@ const highlights = [
 						class="hidden text-base text-red-600"
 						role="alert"
 						aria-live="assertive"
-						data-contact-captcha-error
-					>
-						Potwierdź captcha przed wysłaniem wiadomości.
-					</p>
-
-					<p
-						class="hidden text-base text-red-600"
-						role="alert"
-						aria-live="assertive"
 						data-contact-error
 					>
 						Nie udało się wysłać wiadomości. Spróbuj ponownie za
@@ -219,14 +206,37 @@ const highlights = [
 </section>
 
 <script>
-	import { initContactAnimations } from "../scripts/contact-animations";
-	import { initContactForm } from "../scripts/contact-form";
-
 	const contact = document.querySelector("[data-contact]");
 
 	if (contact instanceof HTMLElement) {
-		initContactAnimations(contact);
-		initContactForm(contact);
+		const initForm = () =>
+			import("../scripts/contact-form").then(({ initContactForm }) => {
+				initContactForm(contact);
+			});
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(initForm, { timeout: 2000 });
+		} else {
+			setTimeout(initForm, 1);
+		}
+
+		const shouldAnimate =
+			!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		if (shouldAnimate) {
+			const initAnimations = () =>
+				import("../scripts/contact-animations").then(
+					({ initContactAnimations }) => {
+						initContactAnimations(contact);
+					},
+				);
+
+			if (typeof requestIdleCallback === "function") {
+				requestIdleCallback(initAnimations, { timeout: 2000 });
+			} else {
+				setTimeout(initAnimations, 1);
+			}
+		}
 	}
 </script>
 

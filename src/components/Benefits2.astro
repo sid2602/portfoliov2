@@ -87,12 +87,25 @@ const assetBase = import.meta.env.BASE_URL;
 </section>
 
 <script>
-	import { initBenefits2Animations } from "../scripts/benefits2-animations";
-
 	const benefits2 = document.querySelector("[data-benefits2]");
 
-	if (benefits2 instanceof HTMLElement) {
-		initBenefits2Animations(benefits2);
+	const shouldAnimate =
+		benefits2 instanceof HTMLElement &&
+		!window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (shouldAnimate) {
+		const start = () =>
+			import("../scripts/benefits2-animations").then(
+				({ initBenefits2Animations }) => {
+					initBenefits2Animations(benefits2);
+				},
+			);
+
+		if (typeof requestIdleCallback === "function") {
+			requestIdleCallback(start, { timeout: 2000 });
+		} else {
+			setTimeout(start, 1);
+		}
 	}
 </script>
 
