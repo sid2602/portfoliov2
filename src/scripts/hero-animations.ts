@@ -12,19 +12,9 @@ export function initHeroAnimations(root: HTMLElement) {
 	const portrait = root.querySelector('[data-hero-portrait]');
 	const effects = root.querySelectorAll('[data-hero-effect]');
 	const stats = root.querySelectorAll('[data-hero-stat]');
-	const grid = root.querySelector('[data-hero-grid]');
 
 	gsap.set(
-		[
-			headingLines,
-			intro,
-			checklistItems,
-			ctaButtons,
-			portrait,
-			effects,
-			stats,
-			grid,
-		],
+		[headingLines, intro, checklistItems, ctaButtons, effects, stats],
 		{ autoAlpha: 0 },
 	);
 
@@ -39,7 +29,6 @@ export function initHeroAnimations(root: HTMLElement) {
 	});
 
 	timeline
-		.to(grid, { autoAlpha: 1, duration: 0.45 })
 		.to(
 			headingLines,
 			{
@@ -48,7 +37,7 @@ export function initHeroAnimations(root: HTMLElement) {
 				duration: 0.5,
 				stagger: 0.06,
 			},
-			'-=0.35',
+			0,
 		)
 		.to(
 			intro,
@@ -92,7 +81,6 @@ export function initHeroAnimations(root: HTMLElement) {
 		.to(
 			portrait,
 			{
-				autoAlpha: 1,
 				x: 0,
 				scale: 1,
 				duration: 0.55,

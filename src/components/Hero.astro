@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import heroGridSvg from "../../public/background-grid.svg?raw";
 
 const checklistItems = [
 	{
@@ -30,6 +31,11 @@ const stats = [
 ] as const;
 
 const assetBase = import.meta.env.BASE_URL;
+
+const heroGridMarkup = heroGridSvg.replace(
+	"<svg ",
+	'<svg class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true" preserveAspectRatio="xMinYMin slice" ',
+);
 ---
 
 <section
@@ -38,17 +44,7 @@ const assetBase = import.meta.env.BASE_URL;
 	role="region"
 	data-hero
 >
-	<img
-		src={`${assetBase}background-grid.svg`}
-		alt=""
-		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-left-top lg:object-center"
-		width="1512"
-		height="982"
-		decoding="async"
-		fetchpriority="low"
-		aria-hidden="true"
-		data-hero-grid
-	/>
+	<div class="contents" set:html={heroGridMarkup} />
 
 	<div
 		class="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:gap-12 sm:px-8 lg:flex-row lg:items-center lg:gap-10 xl:max-w-[1320px]"
@@ -215,10 +211,8 @@ const assetBase = import.meta.env.BASE_URL;
 		[data-hero] [data-hero-intro],
 		[data-hero] [data-hero-checklist-item],
 		[data-hero] [data-hero-cta],
-		[data-hero] [data-hero-portrait],
 		[data-hero] [data-hero-effect],
-		[data-hero] [data-hero-stat],
-		[data-hero] [data-hero-grid] {
+		[data-hero] [data-hero-stat] {
 			opacity: 0;
 		}
 	}
