@@ -26,6 +26,14 @@ const {
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 const ogImageUrl = Astro.site ? new URL(ogImagePath, Astro.site) : new URL(ogImagePath, Astro.url);
 
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL;
+const umamiEnabled =
+	typeof umamiWebsiteId === 'string' &&
+	umamiWebsiteId.length > 0 &&
+	typeof umamiScriptUrl === 'string' &&
+	umamiScriptUrl.length > 0;
+
 const jsonLdWebsite = {
 	'@context': 'https://schema.org',
 	'@type': 'WebSite',
@@ -97,6 +105,17 @@ const jsonLdService = {
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdWebsite)} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdPerson)} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdService)} />
+
+		{
+			umamiEnabled ? (
+				<script
+					defer
+					src={umamiScriptUrl}
+					data-website-id={umamiWebsiteId}
+					data-auto-track="true"
+				/>
+			) : null
+		}
 	</head>
 	<body class="pt-16">
 		<Nav />

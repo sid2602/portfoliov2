@@ -13,7 +13,7 @@ const checklistItems = [
 	},
 	{
 		highlight: "Klienci od razu wiedzą, co oferujesz",
-		rest: "bez domyślania i pytań „czym się zajmujecie?”",
+		rest: "bez domyślania i niejasności co do Twojej oferty",
 	},
 ] as const;
 
@@ -39,7 +39,8 @@ const heroGridMarkup = heroGridSvg.replace(
 ---
 
 <section
-	class="relative overflow-visible bg-background-secondary pt-6 pb-6 sm:pt-16 sm:pb-8 lg:flex lg:min-h-[calc(100dvh-4rem)] lg:flex-col lg:justify-center lg:pt-20 lg:pb-12"
+	id="hero"
+	class="relative overflow-visible bg-background-secondary pt-6 pb-6 sm:pt-16 sm:pb-8 lg:flex lg:min-h-[calc(100dvh-4rem)] lg:flex-col lg:justify-start lg:pt-10 lg:pb-12"
 	aria-labelledby="hero-heading"
 	role="region"
 	data-hero
@@ -73,8 +74,8 @@ const heroGridMarkup = heroGridSvg.replace(
 			>
 				Powiedz mi, czym się zajmujesz. Ja zajmę się resztą, od projektu
 				po uruchomienie. Ty dostajesz <strong
-					>gotową witrynę, która zbiera zapytania</strong
-				>, nawet gdy Ty masz zajęte ręce.
+					>gotową witrynę, która pozyskuje klientów</strong
+				>
 			</p>
 
 			<ul class="flex max-w-[650px] flex-col gap-4">

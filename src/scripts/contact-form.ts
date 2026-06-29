@@ -1,3 +1,5 @@
+import { track } from "./analytics";
+
 const WEB3FORMS_SUBMIT_URL = "https://api.web3forms.com/submit";
 
 type Web3FormsResponse = {
@@ -75,6 +77,7 @@ export function initContactForm(root: HTMLElement) {
 				throw new Error(result.message ?? "Submission failed");
 			}
 
+			track("contact-form-submit");
 			success.classList.remove("hidden");
 			form.reset();
 		} catch {

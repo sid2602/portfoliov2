@@ -1,0 +1,266 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+	analyticsHostname,
+	analyticsRetentionMonths,
+	contactDataRetentionMonths,
+	contactEmail,
+	siteName,
+} from "../config/site";
+
+const privacyPath = `${import.meta.env.BASE_URL}polityka-prywatnosci/`;
+const lastUpdated = "29 czerwca 2026";
+---
+
+<Layout
+	title={`Polityka prywatności — ${siteName}`}
+	description="Informacja o przetwarzaniu danych osobowych na stronie Filipa Kornausa: formularz kontaktowy i anonimowa analityka odwiedzin."
+	noindex={false}
+>
+	<article
+		class="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16 xl:max-w-[48rem]"
+	>
+		<header class="mb-10">
+			<h1
+				class="font-[Montserrat,system-ui,sans-serif] text-3xl text-black sm:text-4xl"
+			>
+				Polityka prywatności
+			</h1>
+			<p class="mt-3 text-base text-black/60">
+				Ostatnia aktualizacja: {lastUpdated}
+			</p>
+		</header>
+
+		<div class="prose-policy flex flex-col gap-8 text-base leading-relaxed text-black/80">
+			<section aria-labelledby="privacy-admin">
+				<h2 id="privacy-admin" class="text-xl font-semibold text-black">
+					1. Administrator danych
+				</h2>
+				<p class="mt-3">
+					Administratorem Twoich danych osobowych jest {siteName}, kontakt:
+					<a
+						href={`mailto:${contactEmail}`}
+						class="text-primary underline-offset-2 hover:underline"
+					>
+						{contactEmail}
+					</a>.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-scope">
+				<h2 id="privacy-scope" class="text-xl font-semibold text-black">
+					2. Zakres i cele przetwarzania
+				</h2>
+				<p class="mt-3">
+					Na tej stronie przetwarzamy dane w dwóch niezależnych celach:
+				</p>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>
+						<strong>Formularz kontaktowy</strong> — obsługa zapytań i korespondencji
+						przed ewentualnym zawarciem umowy.
+					</li>
+					<li>
+						<strong>Analityka odwiedzin</strong> — zagregowane statystyki ruchu na
+						stronie oraz informacja, do jakiej sekcji użytkownik dotarł (np. kontakt,
+						oferta).
+					</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="privacy-legal">
+				<h2 id="privacy-legal" class="text-xl font-semibold text-black">
+					3. Podstawy prawne (RODO)
+				</h2>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>
+						Formularz kontaktowy: art. 6 ust. 1 lit. <strong>b</strong> RODO
+						(działania przed zawarciem umowy na Twoje żądanie) oraz art. 6 ust. 1
+						lit. <strong>f</strong> RODO (prawnie uzasadniony interes — udzielenie
+						odpowiedzi na zapytanie).
+					</li>
+					<li>
+						Analityka: art. 6 ust. 1 lit. <strong>f</strong> RODO (prawnie
+						uzasadniony interes — ocena skuteczności strony przy minimalnym zakresie
+						danych, bez profilowania marketingowego).
+					</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="privacy-form">
+				<h2 id="privacy-form" class="text-xl font-semibold text-black">
+					4. Dane z formularza kontaktowego
+				</h2>
+				<p class="mt-3">
+					Podajesz je dobrowolnie. Mogą to być: imię lub nazwa, adres e-mail oraz
+					treść wiadomości.
+				</p>
+				<p class="mt-3">
+					Wiadomość jest przekazywana przez usługę <strong>Web3Forms</strong> (<a
+						href="https://web3forms.com"
+						class="text-primary underline-offset-2 hover:underline"
+						rel="noopener noreferrer"
+						target="_blank">web3forms.com</a
+					>) na skrzynkę administratora. Web3Forms działa jako podmiot
+					przetwarzający na podstawie swojego regulaminu.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-analytics">
+				<h2 id="privacy-analytics" class="text-xl font-semibold text-black">
+					5. Analityka (Umami, self-hosted)
+				</h2>
+				<p class="mt-3">
+					Korzystamy z narzędzia <strong>Umami</strong> hostowanego na serwerze
+					administratora pod adresem <strong>{analyticsHostname}</strong>. Umami
+					<strong>nie używa cookies analitycznych</strong> i nie tworzy profilu
+					marketingowego.
+				</p>
+				<p class="mt-3">Mogą być rejestrowane m.in.:</p>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>adres odwiedzanej strony (URL),</li>
+					<li>źródło przejścia (referrer),</li>
+					<li>typ przeglądarki i systemu operacyjnego,</li>
+					<li>rozdzielczość ekranu i język przeglądarki,</li>
+					<li>przybliżony kraj (na podstawie adresu IP),</li>
+					<li>
+						zdarzenie dotarcia do sekcji strony (np. <code
+							class="rounded bg-black/5 px-1 py-0.5 text-sm">contact</code
+						>).
+					</li>
+				</ul>
+				<p class="mt-3">
+					Nie zbieramy w analityce imienia, e-maila ani innych danych podanych w
+					formularzu. Korzystanie ze strony nie wymaga zgody na pliki cookies
+					analityczne — nie stosujemy ich w tym zakresie.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-recipients">
+				<h2 id="privacy-recipients" class="text-xl font-semibold text-black">
+					6. Odbiorcy danych
+				</h2>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>
+						<strong>Web3Forms</strong> — dostarczenie wiadomości z formularza.
+					</li>
+					<li>
+						<strong>Serwer Umami</strong> ({analyticsHostname}) — przechowywanie
+						statystyk odwiedzin.
+					</li>
+					<li>
+						<strong>GitHub Pages</strong> (GitHub / Microsoft) — hosting statycznej
+						treści strony.
+					</li>
+				</ul>
+				<p class="mt-3">
+					Hosting strony i serwer analityki mogą znajdować się w Unii Europejskiej
+					lub poza nią — w zależności od konfiguracji infrastruktury. Jeśli
+					przetwarzanie odbywa się poza EOG, stosowane są odpowiednie zabezpieczenia
+					prawne (np. standardowe klauzule umowne), o ile mają zastosowanie.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-retention">
+				<h2 id="privacy-retention" class="text-xl font-semibold text-black">
+					7. Okres przechowywania
+				</h2>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>
+						Korespondencja z formularza: do zakończenia sprawy, nie dłużej niż {
+							contactDataRetentionMonths
+						} miesięcy od ostatniego kontaktu.
+					</li>
+					<li>
+						Dane analityczne Umami: do {analyticsRetentionMonths} miesięcy (zgodnie
+						z ustawieniami serwera analityki).
+					</li>
+				</ul>
+			</section>
+
+			<section aria-labelledby="privacy-rights">
+				<h2 id="privacy-rights" class="text-xl font-semibold text-black">
+					8. Twoje prawa
+				</h2>
+				<p class="mt-3">Przysługuje Ci m.in. prawo do:</p>
+				<ul class="mt-3 list-disc space-y-2 pl-5">
+					<li>dostępu do danych,</li>
+					<li>sprostowania,</li>
+					<li>usunięcia,</li>
+					<li>ograniczenia przetwarzania,</li>
+					<li>przenoszenia danych (gdy ma to zastosowanie),</li>
+					<li>
+						<strong>sprzeciwu</strong> wobec przetwarzania opartego na art. 6 ust. 1
+						lit. f RODO, w tym wobec analityki.
+					</li>
+				</ul>
+				<p class="mt-3">
+					W sprawach dotyczących danych osobowych napisz na adres {
+						contactEmail
+					}. Możesz też złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych
+					(<a
+						href="https://uodo.gov.pl"
+						class="text-primary underline-offset-2 hover:underline"
+						rel="noopener noreferrer"
+						target="_blank">uodo.gov.pl</a
+					>).
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-objection">
+				<h2 id="privacy-objection" class="text-xl font-semibold text-black">
+					9. Sprzeciw wobec analityki
+				</h2>
+				<p class="mt-3">
+					Możesz w każdej chwili zgłosić sprzeciw wobec analityki, kontaktując się
+					mailem. Możesz też ograniczyć śledzenie przez ustawienia przeglądarki
+					(blokada skryptów śledzących) lub wysyłając nagłówek „Do Not Track”, jeśli
+					został on włączony w konfiguracji analityki.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-external">
+				<h2 id="privacy-external" class="text-xl font-semibold text-black">
+					10. Linki zewnętrzne
+				</h2>
+				<p class="mt-3">
+					Strona zawiera linki do serwisów zewnętrznych (np. LinkedIn, realizacje
+					klientów). Po przejściu na te serwisy obowiązują ich własne polityki
+					prywatności.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-automated">
+				<h2 id="privacy-automated" class="text-xl font-semibold text-black">
+					11. Zautomatyzowane decyzje
+				</h2>
+				<p class="mt-3">
+					Nie podejmujemy wobec Ciebie decyzji w sposób zautomatyzowany, w tym na
+					podstawie profilowania, które wywoływałyby skutki prawne lub w podobny
+					sposób istotnie na Ciebie wpływały.
+				</p>
+			</section>
+
+			<section aria-labelledby="privacy-changes">
+				<h2 id="privacy-changes" class="text-xl font-semibold text-black">
+					12. Zmiany polityki
+				</h2>
+				<p class="mt-3">
+					Polityka może być aktualizowana. Nowa wersja będzie publikowana pod
+					adresem <a
+						href={privacyPath}
+						class="text-primary underline-offset-2 hover:underline"
+					>{privacyPath}</a> wraz z datą ostatniej zmiany.
+				</p>
+			</section>
+		</div>
+
+		<p class="mt-12">
+			<a
+				href={import.meta.env.BASE_URL}
+				class="text-base font-medium text-primary underline-offset-2 hover:underline"
+			>
+				← Wróć na stronę główną
+			</a>
+		</p>
+	</article>
+</Layout>

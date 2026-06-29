@@ -27,6 +27,7 @@ const socialLinks = [
 
 const year = new Date().getFullYear();
 const homeHref = import.meta.env.BASE_URL;
+const privacyHref = `${import.meta.env.BASE_URL}polityka-prywatnosci/`;
 ---
 
 <footer
@@ -101,9 +102,17 @@ const homeHref = import.meta.env.BASE_URL;
 		<div
 			class="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
 		>
-			<p class="text-base text-white/70">
-				&copy; {year} Filip Kornaus. Wszelkie prawa zastrzeżone.
-			</p>
+			<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+				<p class="text-base text-white/70">
+					&copy; {year} Filip Kornaus. Wszelkie prawa zastrzeżone.
+				</p>
+				<a
+					href={privacyHref}
+					class="text-base text-white/70 transition-colors hover:text-primary"
+				>
+					Polityka prywatności
+				</a>
+			</div>
 
 			<ul class="flex items-center gap-3">
 				{
