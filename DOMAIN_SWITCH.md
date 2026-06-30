@@ -28,7 +28,7 @@ In [`src/layouts/Layout.astro`](src/layouts/Layout.astro), change the default `n
 
 ## 3) Deploy and verify
 
-On the server: `git pull` + `npm run build`.
+On the server: `git pull` + `docker compose up -d --build`.
 
 Check:
 

@@ -1,10 +1,12 @@
 services:
   portfolio:
-    image: caddy:alpine
+    build:
+      context: .
+      args:
+        WEB3FORMS_ACCESS_KEY: ${WEB3FORMS_ACCESS_KEY}
+        PUBLIC_UMAMI_WEBSITE_ID: ${PUBLIC_UMAMI_WEBSITE_ID}
+        PUBLIC_UMAMI_SCRIPT_URL: ${PUBLIC_UMAMI_SCRIPT_URL}
     restart: always
-    volumes:
-      - ./dist:/srv:ro
-    command: ["caddy", "file-server", "--root", "/srv", "--listen", ":80"]
     networks:
       - external-proxy
     labels:

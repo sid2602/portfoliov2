@@ -1,10 +1,11 @@
 # Deploy on VPS (kornausfilip.com)
 
-Static Astro site hosted on a self-managed VPS behind Traefik. No CI/CD — manual deploy via `git pull` on the server.
+Static Astro site hosted on a self-managed VPS behind Traefik. Build and serve run entirely in Docker — **no Node.js/npm required on the host**.
+
+No CI/CD — manual deploy via `git pull` + `docker compose up -d --build` on the server.
 
 ## Server requirements
 
-- Node.js >= 22.12
 - Docker + Docker Compose
 - Traefik (network `cvcreator_cvcreator-network`, cert resolver `letsencrypt`)
 - DNS `A` record for `kornausfilip.com` → VPS IP
@@ -15,16 +16,14 @@ Static Astro site hosted on a self-managed VPS behind Traefik. No CI/CD — manu
 git clone https://github.com/sid2602/portfoliov2.git /opt/portfolio
 cd /opt/portfolio
 
-cp .env.example .env.production
+cp .env.example .env
 # Fill in: WEB3FORMS_ACCESS_KEY, PUBLIC_UMAMI_WEBSITE_ID
 # PUBLIC_UMAMI_SCRIPT_URL=https://analytics.kornausfilip.com/script.js
 
-npm ci
-npm run build
-docker compose up -d
+docker compose up -d --build
 ```
 
-`.env.production` is not committed — Astro loads it during `npm run build`.
+Docker Compose reads `.env` from the project root and passes the values into the image build (contact form key, Umami analytics). `.env` is not committed.
 
 ## Updating the site
 
@@ -33,11 +32,10 @@ After `git push` to GitHub, on the server:
 ```bash
 cd /opt/portfolio
 git pull
-npm ci          # only when dependencies changed
-npm run build
+docker compose up -d --build
 ```
 
-A Docker restart is **not required** — the Caddy container mounts `dist/` and serves new files immediately after the build.
+`--build` rebuilds the Astro site inside Docker and restarts the container with the new static files.
 
 If you still see the old version in the browser, hard-refresh (Ctrl+Shift+R).
 
@@ -50,7 +48,7 @@ In [sid2602/portfoliov2](https://github.com/sid2602/portfoliov2): **Settings →
 | Service | Notes |
 |---------|-------|
 | **Umami** | Website URL in dashboard: `https://kornausfilip.com` |
-| **Web3Forms** | `WEB3FORMS_ACCESS_KEY` in `.env.production` on the server |
+| **Web3Forms** | `WEB3FORMS_ACCESS_KEY` in `.env` on the server |
 
 ## Verification
 

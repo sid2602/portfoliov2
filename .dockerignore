@@ -1,0 +1,10 @@
+node_modules
+dist
+docs
+.git
+.astro
+.env
+.env.*
+!.env.example
+reference
+.cursor

@@ -13,16 +13,16 @@ Portfolio site built with **Astro 6** + Tailwind CSS 4. Production: **https://ko
 
 ## Environment variables
 
-Copy `.env.example` to `.env` (local) or `.env.production` (server):
+Copy `.env.example` to `.env` (local dev or server deploy):
 
 - `WEB3FORMS_ACCESS_KEY` — contact form
 - `PUBLIC_UMAMI_WEBSITE_ID` / `PUBLIC_UMAMI_SCRIPT_URL` — analytics (optional)
 
 ## Deploy
 
-VPS hosting — details in [DEPLOY.md](DEPLOY.md).
+VPS hosting — details in [DEPLOY.md](DEPLOY.md). No Node.js on the server; build runs inside Docker.
 
-Workflow: `git push` → on server `git pull` + `npm run build`.
+Workflow: `git push` → on server `git pull` + `docker compose up -d --build`.
 
 ## SEO
 
