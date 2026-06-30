@@ -11,7 +11,6 @@ const TRACKED_SECTIONS = [
 ] as const;
 
 type TrackedSection = (typeof TRACKED_SECTIONS)[number];
-type SectionReachData = { section: TrackedSection };
 
 type UmamiClient = {
 	track: (
@@ -41,13 +40,17 @@ export function track(
 	}
 }
 
+function sectionReachEventName(section: TrackedSection): string {
+	return `reach-${section}`;
+}
+
 function trackSectionReach(section: TrackedSection) {
 	if (reachedSections.has(section)) {
 		return;
 	}
 
 	reachedSections.add(section);
-	track('section-reach', { section });
+	track(sectionReachEventName(section));
 }
 
 export function initSectionTracking() {
