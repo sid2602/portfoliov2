@@ -7,9 +7,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sid2602.github.io',
-  base: '/portfoliov2/',
-  outDir: './docs',
+  site: 'https://kornausfilip.com',
+  base: '/',
   integrations: [icon(), sitemap()],
   vite: {
     plugins: [tailwindcss()]

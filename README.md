@@ -1,59 +1,29 @@
-# Astro Starter Kit: Basics
+# Portfolio — Filip Kornaus
 
-```sh
-npm create astro@latest -- --template basics
-```
+Portfolio site built with **Astro 6** + Tailwind CSS 4. Production: **https://kornausfilip.com** (VPS + Traefik).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+| Command | Description |
+|---------|-------------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server (`localhost:4321`) |
+| `npm run build` | Production build to `./dist/` |
+| `npm run preview` | Preview build locally |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Environment variables
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Copy `.env.example` to `.env` (local) or `.env.production` (server):
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- `WEB3FORMS_ACCESS_KEY` — contact form
+- `PUBLIC_UMAMI_WEBSITE_ID` / `PUBLIC_UMAMI_SCRIPT_URL` — analytics (optional)
 
-## 🧞 Commands
+## Deploy
 
-All commands are run from the root of the project, from a terminal:
+VPS hosting — details in [DEPLOY.md](DEPLOY.md).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./docs/` (GitHub Pages) |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Workflow: `git push` → on server `git pull` + `npm run build`.
 
-## GitHub Pages (no Actions)
+## SEO
 
-This repo is a [project site](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-types): **https://sid2602.github.io/portfoliov2/**
-
-1. **Settings → Pages** in [sid2602/portfoliov2](https://github.com/sid2602/portfoliov2): set **Source** to **Deploy from a branch**, branch **`main`**, folder **`/docs`**.
-2. After changing the site, run `npm run build`, commit the updated `docs/` folder, and push to `main`.
-
-`public/.nojekyll` is copied into `docs/` on each build so GitHub Pages does not run Jekyll (which would otherwise ignore the `_astro/` CSS and JS folder).
-
-`site` and `base` are set in [`astro.config.mjs`](astro.config.mjs) for that URL. For a root domain later, set `base: '/'` and change `site` accordingly.
-
-Optional: put `WEB3FORMS_ACCESS_KEY` in `.env` (not committed) before `npm run build` so the contact form works on the deployed site.
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The site is intentionally not indexed. Checklist for enabling indexing: [DOMAIN_SWITCH.md](DOMAIN_SWITCH.md).

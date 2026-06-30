@@ -1,0 +1,21 @@
+services:
+  portfolio:
+    image: caddy:alpine
+    restart: always
+    volumes:
+      - ./dist:/srv:ro
+    command: ["caddy", "file-server", "--root", "/srv", "--listen", ":80"]
+    networks:
+      - external-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=cvcreator_cvcreator-network"
+      - "traefik.http.routers.portfolio.rule=Host(`kornausfilip.com`) || Host(`www.kornausfilip.com`)"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+
+networks:
+  external-proxy:
+    external: true
+    name: cvcreator_cvcreator-network

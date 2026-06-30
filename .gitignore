@@ -1,5 +1,6 @@
-# build output (local only; GitHub Pages uses committed ./docs/)
+# build output (generated on server or locally; not committed)
 dist/
+docs/
 
 # generated types
 .astro/
