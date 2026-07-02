@@ -9,7 +9,7 @@ import {
 } from "../config/site";
 
 const privacyPath = `${import.meta.env.BASE_URL}polityka-prywatnosci/`;
-const lastUpdated = "29 czerwca 2026";
+const lastUpdated = "30 czerwca 2026";
 ---
 
 <Layout
@@ -61,8 +61,8 @@ const lastUpdated = "29 czerwca 2026";
 					</li>
 					<li>
 						<strong>Analityka odwiedzin</strong> — zagregowane statystyki ruchu na
-						stronie oraz informacja, do jakiej sekcji użytkownik dotarł (np. kontakt,
-						oferta).
+						stronie, informacja o dotarciu do sekcji (np. kontakt, oferta) oraz
+						zagregowane metryki wydajności technicznej strony.
 					</li>
 				</ul>
 			</section>
@@ -80,8 +80,8 @@ const lastUpdated = "29 czerwca 2026";
 					</li>
 					<li>
 						Analityka: art. 6 ust. 1 lit. <strong>f</strong> RODO (prawnie
-						uzasadniony interes — ocena skuteczności strony przy minimalnym zakresie
-						danych, bez profilowania marketingowego).
+						uzasadniony interes — ocena skuteczności i jakości technicznej strony przy
+						minimalnym zakresie danych, bez profilowania marketingowego).
 					</li>
 				</ul>
 			</section>
@@ -123,9 +123,16 @@ const lastUpdated = "29 czerwca 2026";
 					<li>rozdzielczość ekranu i język przeglądarki,</li>
 					<li>przybliżony kraj (na podstawie adresu IP),</li>
 					<li>
-						zdarzenie dotarcia do sekcji strony (np. <code
-							class="rounded bg-black/5 px-1 py-0.5 text-sm">contact</code
-						>).
+						zdarzenia dotarcia do sekcji strony (np. <code
+							class="rounded bg-black/5 px-1 py-0.5 text-sm">reach-contact</code
+						>),
+					</li>
+					<li>
+						metryki wydajności strony (Core Web Vitals), m.in. czas wyświetlenia
+						głównej treści (LCP), stabilność układu (CLS), czas reakcji na
+						interakcję (INP), czas pierwszego renderu (FCP) i czas odpowiedzi
+						serwera (TTFB) — wyłącznie w celu utrzymania jakości technicznej
+						strony.
 					</li>
 				</ul>
 				<p class="mt-3">

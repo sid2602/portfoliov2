@@ -99,7 +99,7 @@ volumes:
 Kroki operacyjne:
 1. Uruchom stack, zaloguj się (`admin` / `umami`), **zmień hasło**
 2. W panelu: **Settings → Websites → Add website** — URL produkcyjny: `https://sid2602.github.io/portfoliov2/` (lub docelowa domena)
-3. Skopiuj **Website ID** i URL skryptu: `https://analytics.twoja-domena.pl/script.js`
+3. Skopiuj **Website ID** i URL skryptu: `https://analytics.kornausfilip.com/script.js`
 4. Reverse proxy (nginx/Caddy) z HTTPS — tracker musi być serwowany po HTTPS
 5. Opcjonalnie: włącz **Do Not Track** w ustawieniach website (Umami respektuje nagłówek DNT)
 
@@ -113,7 +113,7 @@ Wzorzec jak przy Web3Forms w [`.env.example`](.env.example):
 
 ```env
 PUBLIC_UMAMI_WEBSITE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-PUBLIC_UMAMI_SCRIPT_URL=https://analytics.twoja-domena.pl/script.js
+PUBLIC_UMAMI_SCRIPT_URL=https://analytics.kornausfilip.com/script.js
 ```
 
 - Prefix `PUBLIC_` — dostępne w kliencie przez `import.meta.env`
@@ -262,7 +262,7 @@ Polityka powinna zawierać (art. 13 RODO — obowiązek informacyjny):
 | **Podstawa prawna** | Formularz: art. 6 ust. 1 lit. **b** (działania przed zawarciem umowy) lub lit. **f** (interes — odpowiedź na zapytanie). Analityka: art. 6 ust. 1 lit. **f** (prawnie uzasadniony interes — znajomość ruchu i skuteczności strony) |
 | **Dane z formularza** | Imię, e-mail, treść wiadomości — podane dobrowolnie |
 | **Dane z analityki (Umami)** | Adres URL strony, referrer, typ przeglądarki i systemu, rozdzielczość ekranu, język, przybliżony kraj (z IP), zdarzenia `section-reach` (nazwa sekcji, np. `contact`). **Bez** imienia, e-maila, profilu marketingowego, cookies analitycznych |
-| **Odbiorcy / podmioty przetwarzające** | **Web3Forms** (dostarczenie wiadomości z formularza — [web3forms.com](https://web3forms.com)), **Twój serwer Umami** (analityka, self-hosted — podaj docelową domenę, np. `analytics.twoja-domena.pl`), **GitHub Pages** (hosting statycznej strony) |
+| **Odbiorcy / podmioty przetwarzające** | **Web3Forms** (dostarczenie wiadomości z formularza — [web3forms.com](https://web3forms.com)), **Twój serwer Umami** (analityka, self-hosted — podaj docelową domenę, np. `analytics.kornausfilip.com`), **GitHub Pages** (hosting statycznej strony) |
 | **Przekazywanie poza EOG** | Jeśli VPS Umami lub Web3Forms są poza UE — wymień kraj i podstawę (np. SCC). Jeśli serwer w UE — napisz wprost „dane nie są przekazywane poza EOG” |
 | **Okres przechowywania** | Formularz: do zakończenia korespondencji / max X miesięcy. Umami: zgodnie z ustawieniem w panelu (domyślnie do 24 mies. — **ustaw i opisz konkretną liczbę**) |
 | **Prawa osoby** | Dostęp, sprostowanie, usunięcie, ograniczenie, sprzeciw (w tym wobec analityki z art. 21), przenoszenie (gdzie ma zastosowanie), skarga do **UODO** ([uodo.gov.pl](https://uodo.gov.pl)) |
