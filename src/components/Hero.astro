@@ -2,21 +2,6 @@
 import { Icon } from "astro-icon/components";
 import heroGridSvg from "../../public/background-grid.svg?raw";
 
-const checklistItems = [
-	{
-		highlight: "Konkurencja przestaje wygrywać samym wyglądem",
-		rest: "klienci widzą, dlaczego warto wybrać Ciebie",
-	},
-	{
-		highlight: "Wyglądasz jak firma godna wyższej ceny",
-		rest: "pierwsze wrażenie buduje wartość, nie tylko „ładną wizytówkę”",
-	},
-	{
-		highlight: "Klienci od razu wiedzą, co oferujesz",
-		rest: "bez domyślania i niejasności co do Twojej oferty",
-	},
-] as const;
-
 const stats = [
 	{
 		value: "200%",
@@ -78,44 +63,23 @@ const heroGridMarkup = heroGridSvg.replace(
 				>
 			</p>
 
-			<ul class="flex max-w-[650px] flex-col gap-4">
-				{
-					checklistItems.map((item) => (
-						<li
-							class="flex items-center gap-3 text-sm sm:text-base"
-							data-hero-checklist-item
-						>
-							<Icon
-								name="lucide:check"
-								class="h-3 w-4 shrink-0 text-black/60"
-								aria-hidden="true"
-							/>
-							<p class="leading-normal tracking-tight text-black/60">
-								<strong class="font-semibold text-black/75">
-									{item.highlight}
-								</strong>
-								: {item.rest}
-							</p>
-						</li>
-					))
-				}
-			</ul>
-
 			<div class="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap">
-				<a
-					href="#contact"
-					class="inline-flex justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold leading-normal text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
-					data-hero-cta
-				>
-					Umów darmową rozmowę
-				</a>
-				<a
-					href="#process"
-					class="inline-flex justify-center rounded-lg border border-[#c6c6cd] px-8 py-4 text-base font-semibold leading-normal text-[#191c1e] shadow-sm transition-colors hover:bg-background/60"
-					data-hero-cta
-				>
-					Zobacz, jak pracuję
-				</a>
+				<div data-hero-cta-wrap>
+					<a
+						href="#contact"
+						class="inline-flex cursor-pointer justify-center rounded-lg bg-[#0f172a] px-8 py-4 text-base font-bold leading-normal text-white shadow-[0_4px_7px_rgba(15,23,42,0.39)] transition-opacity hover:opacity-90"
+					>
+						Umów darmową rozmowę
+					</a>
+				</div>
+				<div data-hero-cta-wrap>
+					<a
+						href="#process"
+						class="inline-flex cursor-pointer justify-center rounded-lg border border-[#c6c6cd] px-8 py-4 text-base font-semibold leading-normal text-[#191c1e] shadow-sm transition-colors hover:bg-background/60"
+					>
+						Zobacz, jak pracuję
+					</a>
+				</div>
 			</div>
 		</div>
 
@@ -210,8 +174,7 @@ const heroGridMarkup = heroGridSvg.replace(
 	@media (prefers-reduced-motion: no-preference) {
 		[data-hero] [data-hero-line],
 		[data-hero] [data-hero-intro],
-		[data-hero] [data-hero-checklist-item],
-		[data-hero] [data-hero-cta],
+		[data-hero] [data-hero-cta-wrap],
 		[data-hero] [data-hero-effect],
 		[data-hero] [data-hero-stat] {
 			opacity: 0;

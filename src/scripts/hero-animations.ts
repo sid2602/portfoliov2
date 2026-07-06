@@ -7,14 +7,13 @@ export function initHeroAnimations(root: HTMLElement) {
 
 	const headingLines = root.querySelectorAll('[data-hero-line]');
 	const intro = root.querySelector('[data-hero-intro]');
-	const checklistItems = root.querySelectorAll('[data-hero-checklist-item]');
-	const ctaButtons = root.querySelectorAll('[data-hero-cta]');
+	const ctaWraps = root.querySelectorAll('[data-hero-cta-wrap]');
 	const portrait = root.querySelector('[data-hero-portrait]');
 	const effects = root.querySelectorAll('[data-hero-effect]');
 	const stats = root.querySelectorAll('[data-hero-stat]');
 
 	gsap.set(
-		[headingLines, intro, checklistItems, ctaButtons, effects, stats],
+		[headingLines, intro, ctaWraps, effects, stats],
 		{ autoAlpha: 0 },
 	);
 
@@ -22,7 +21,7 @@ export function initHeroAnimations(root: HTMLElement) {
 	gsap.set(stats, { y: 16, scale: 0.94 });
 	gsap.set(effects, { scale: 0.94 });
 	gsap.set(headingLines, { y: 24 });
-	gsap.set([intro, checklistItems, ctaButtons], { y: 14 });
+	gsap.set([intro, ctaWraps], { y: 14 });
 
 	const timeline = gsap.timeline({
 		defaults: { ease: 'power2.out' },
@@ -49,17 +48,7 @@ export function initHeroAnimations(root: HTMLElement) {
 			'-=0.3',
 		)
 		.to(
-			checklistItems,
-			{
-				autoAlpha: 1,
-				y: 0,
-				duration: 0.35,
-				stagger: 0.04,
-			},
-			'-=0.22',
-		)
-		.to(
-			ctaButtons,
+			ctaWraps,
 			{
 				autoAlpha: 1,
 				y: 0,
