@@ -19,13 +19,13 @@ const assetBase = import.meta.env.BASE_URL;
 
 const heroGridMarkup = heroGridSvg.replace(
 	"<svg ",
-	'<svg class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true" preserveAspectRatio="xMinYMin slice" ',
+	'<svg class="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMin slice" ',
 );
 ---
 
 <section
 	id="hero"
-	class="relative overflow-visible bg-background-secondary pt-6 pb-6 sm:pt-16 sm:pb-8 lg:flex lg:min-h-[calc(100dvh-4rem)] lg:flex-col lg:justify-start lg:pt-10 lg:pb-12"
+	class="relative overflow-visible bg-background-secondary pt-6 pb-6 sm:pt-16 sm:pb-8 lg:flex lg:min-h-[calc(100dvh-4rem)] lg:flex-col lg:justify-center lg:pt-10 lg:pb-12"
 	aria-labelledby="hero-heading"
 	role="region"
 	data-hero
@@ -33,9 +33,9 @@ const heroGridMarkup = heroGridSvg.replace(
 	<div class="contents" set:html={heroGridMarkup} />
 
 	<div
-		class="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:gap-12 sm:px-8 lg:flex-row lg:items-center lg:gap-10 xl:max-w-[1320px]"
+		class="relative mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 sm:gap-12 sm:px-8 lg:flex-row lg:items-center lg:justify-center lg:gap-10 xl:max-w-[1320px] xl:gap-16"
 	>
-		<div class="flex max-w-[689px] flex-1 flex-col gap-4 sm:gap-6">
+		<div class="flex w-full max-w-[689px] shrink-0 flex-col gap-4 sm:gap-6 lg:w-auto lg:max-w-[689px]">
 			<h1
 				id="hero-heading"
 				class="font-[Montserrat,system-ui,sans-serif] text-4xl text-black sm:text-5xl lg:text-6xl"
@@ -84,12 +84,12 @@ const heroGridMarkup = heroGridSvg.replace(
 		</div>
 
 		<div
-			class="relative mx-auto flex w-full max-w-[280px] flex-1 flex-col items-center sm:max-w-md lg:mx-0 lg:max-w-lg pb-8"
+			class="relative mx-auto flex w-full max-w-[240px] shrink-0 flex-col items-center sm:max-w-[280px] md:max-w-[320px] pb-8 lg:w-auto lg:max-w-[300px] xl:max-w-lg"
 		>
 			<img
 				src={`${assetBase}background-effect2.svg`}
 				alt=""
-				class="pointer-events-none absolute bottom-12 right-0 z-0 w-24 sm:bottom-20 sm:w-32 lg:bottom-32 lg:w-40"
+				class="pointer-events-none absolute bottom-12 right-0 z-0 w-20 sm:bottom-16 sm:w-24 lg:bottom-20 lg:w-28 xl:bottom-32 xl:w-40"
 				width="226"
 				height="226"
 				loading="lazy"
@@ -99,7 +99,7 @@ const heroGridMarkup = heroGridSvg.replace(
 			<img
 				src={`${assetBase}background-effect1.svg`}
 				alt=""
-				class="pointer-events-none absolute right-0 top-0 z-0 w-28 opacity-90 sm:right-1/4 sm:w-40 lg:right-[12%] lg:w-48"
+				class="pointer-events-none absolute right-0 top-0 z-0 w-24 opacity-90 sm:right-1/4 sm:w-28 lg:right-[10%] lg:w-36 xl:right-[12%] xl:w-48"
 				width="290"
 				height="257"
 				loading="lazy"
@@ -110,7 +110,7 @@ const heroGridMarkup = heroGridSvg.replace(
 			<img
 				src={`${assetBase}3.webp`}
 				alt="Filip — zdjęcie w sekcji hero"
-				class="relative z-10 mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] md:max-w-[360px] lg:max-w-[433px] lg:max-h-[576px]"
+				class="relative z-10 mx-auto h-auto w-full max-w-[220px] object-contain sm:max-w-[260px] md:max-w-[300px] lg:max-w-[280px] lg:max-h-[373px] xl:max-w-[433px] xl:max-h-[576px]"
 				width="433"
 				height="576"
 				loading="eager"
@@ -120,20 +120,20 @@ const heroGridMarkup = heroGridSvg.replace(
 			/>
 
 			<div
-				class="relative z-20 -mt-10 flex justify-center gap-1 sm:-mt-14 sm:gap-2 lg:-mt-20"
+				class="relative z-20 -mt-8 flex justify-center gap-1 sm:-mt-10 sm:gap-2 md:-mt-14 lg:-mt-14 xl:-mt-20"
 			>
 				{
 					stats.map((stat) => (
 						<article
 							data-hero-stat
-							class="grid h-[118px] w-[118px] grid-rows-[1fr_auto_1fr] justify-items-center gap-y-1 rounded-xl bg-background p-2 shadow-[0_8px_30px] shadow-primary/8 sm:h-[142px] sm:w-[142px] sm:gap-y-2 md:size-[188px] md:gap-y-3 lg:size-[140px] xl:size-[196px] lg:gap-y-2 xl:gap-y-4"
+							class="grid h-[108px] w-[108px] grid-rows-[1fr_auto_1fr] justify-items-center gap-y-1 rounded-xl bg-background p-2 shadow-[0_8px_30px] shadow-primary/8 sm:h-[128px] sm:w-[128px] sm:gap-y-2 md:size-[160px] md:gap-y-2 lg:size-[140px] lg:gap-y-2 xl:size-[196px] xl:gap-y-4"
 						>
 							<Icon
 								name={stat.icon}
 								class="row-start-1 size-6 shrink-0 self-end text-icon sm:size-7 md:size-8"
 								aria-hidden="true"
 							/>
-							<span class="row-start-2 text-center text-xl font-bold leading-none text-black/80 sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl">
+							<span class="row-start-2 text-center text-lg font-bold leading-none text-black/80 sm:text-xl md:text-2xl lg:text-xl xl:text-3xl">
 								{stat.value}
 							</span>
 							<span class="row-start-3 self-start text-center text-xs leading-tight text-black/60 sm:text-sm">
