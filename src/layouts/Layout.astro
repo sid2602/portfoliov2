@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
+import { buildPersonProviderRef, buildPersonSchema, personJobTitle } from '../config/person';
 import { contactEmail, siteName } from '../config/site';
 import '../styles/global.css';
 
@@ -14,17 +15,23 @@ type Props = {
 	 * Keep true for testing/staging; flip to false for production indexing.
 	 */
 	noindex?: boolean;
+	/** Optional extra JSON-LD objects rendered in `<head>` */
+	jsonLd?: Record<string, unknown>[];
 };
 
 const {
-	title = 'Filip Kornaus — Strony, które pracują na wynik',
+	title = `${siteName} — ${personJobTitle}`,
 	description = 'Strona, która sprzedaje: projektuję, piszę i wdrażam witryny oraz aplikacje webowe. Zamieniam odwiedziny w zapytania: jasny przekaz, UX i szybkie wdrożenie pod pozyskiwanie klientów.',
 	ogImagePath = `${import.meta.env.BASE_URL}hero.webp`,
 	noindex = false,
+	jsonLd = [],
 } = Astro.props satisfies Props;
 
 const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 const ogImageUrl = Astro.site ? new URL(ogImagePath, Astro.site) : new URL(ogImagePath, Astro.url);
+const siteUrl = Astro.site
+	? new URL(import.meta.env.BASE_URL, Astro.site).toString()
+	: canonicalUrl.origin;
 
 const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL;
@@ -38,25 +45,21 @@ const jsonLdWebsite = {
 	'@context': 'https://schema.org',
 	'@type': 'WebSite',
 	name: siteName,
-	url: Astro.site ? new URL(import.meta.env.BASE_URL, Astro.site).toString() : canonicalUrl.origin,
+	url: siteUrl,
 	inLanguage: 'pl-PL',
 };
 
-const jsonLdPerson = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: siteName,
-	url: Astro.site ? new URL(import.meta.env.BASE_URL, Astro.site).toString() : canonicalUrl.origin,
-	jobTitle: 'Web developer',
+const jsonLdPerson = buildPersonSchema({
+	pageUrl: siteUrl,
+	imageUrl: ogImageUrl.toString(),
 	description,
-	email: contactEmail,
-};
+});
 
 const jsonLdService = {
 	'@context': 'https://schema.org',
 	'@type': 'ProfessionalService',
 	name: 'Filip Kornaus — strony i aplikacje',
-	url: Astro.site ? new URL(import.meta.env.BASE_URL, Astro.site).toString() : canonicalUrl.origin,
+	url: siteUrl,
 	description,
 	areaServed: ['PL', 'EU', 'Worldwide'],
 	serviceType: ['Strony www', 'Landing page', 'Wdrożenia', 'Aplikacje webowe'],
@@ -68,10 +71,7 @@ const jsonLdService = {
 			availableLanguage: ['pl'],
 		},
 	],
-	provider: {
-		'@type': 'Person',
-		name: siteName,
-	},
+	provider: buildPersonProviderRef(siteUrl),
 };
 ---
 
@@ -105,6 +105,9 @@ const jsonLdService = {
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdWebsite)} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdPerson)} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLdService)} />
+		{jsonLd.map((item) => (
+			<script type="application/ld+json" set:html={JSON.stringify(item)} />
+		))}
 
 		{
 			umamiEnabled ? (
