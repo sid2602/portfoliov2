@@ -3,6 +3,14 @@ import { contactEmail, siteName } from "./site";
 export const personJobTitle =
 	"Twórca stron i landing page pod pozyskiwanie klientów";
 
+/** Default `<title>` / OG title — keep between ~50–60 characters for SERP display. */
+export const defaultPageTitle =
+	"Filip Kornaus — Landing page i aplikacje webowe pod wynik";
+
+/** Default meta / OG description — keep at or under ~160 characters for SERP display. */
+export const defaultPageDescription =
+	"Strona, która sprzedaje: landing page i aplikacje webowe od projektu po uruchomienie. Zamieniam odwiedzających w klientów — przekaz, UX, konwersja.";
+
 export const linkedInUrl = "https://www.linkedin.com/in/kornausfilip";
 
 export const personSameAs = [
